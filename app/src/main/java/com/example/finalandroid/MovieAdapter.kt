@@ -26,7 +26,6 @@ class MovieAdapter: RecyclerView.Adapter<MovieAdapter.movieHolder>() {
         val binding = FilmsItemBinding.bind(item)
         val name = binding.nameMovie
         val description = binding.descriptionMovie
-//        val rating = binding.ratingMovie
         val img = binding.imageView
 
         init{
@@ -38,7 +37,6 @@ class MovieAdapter: RecyclerView.Adapter<MovieAdapter.movieHolder>() {
         fun bindingMovie(movie: Film){
             name.text = movie.title
             description.text = movie.description
-//            rating.text = movie.rating
             val resourceId = when (movie.id % 5) {
                 1 -> R.drawable.dee
                 2 -> R.drawable.dee

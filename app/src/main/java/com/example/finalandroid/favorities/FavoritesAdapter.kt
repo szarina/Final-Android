@@ -61,10 +61,5 @@ class FavoritesAdapter(var sfilmsList:List<Favorite>, val context: Context) : Re
         return sfilmsList.size
     }
 
-    override fun onBindViewHolder(holder: sHolder, position: Int) {
-        holder.bind(sfilmsList[position])
-        holder.deleteSavedItem(sfilmsList[position])
-    }
-
 
 }
