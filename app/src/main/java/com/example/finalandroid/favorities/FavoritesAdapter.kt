@@ -1,84 +1,70 @@
 package com.example.finalandroid.favorities
 
-
+import android.app.AlertDialog
+import android.content.Context
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
-import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
-import androidx.lifecycle.asLiveData
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.project4.databinding.ActivitySavedFruitsBinding
-import com.example.project4.ItemDetails
-import com.example.project4.MainActivity
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.recyclerview.widget.RecyclerView
+import com.example.finalandroid.R
+import com.example.finalandroid.databinding.SavedFilmsItemBinding
 
-class FavoritesAdapter : AppCompatActivity() {
-    lateinit var binding: ActivitySavedFruitsBinding
-    lateinit var recAdapter: FavoritesAdapter
-    var backPressedTime: Long = 0
-    lateinit var builder: AlertDialog.Builder
+class FavoritesAdapter(var sfilmsList:List<Favorite>, val context: Context) : RecyclerView.Adapter<FavoritesAdapter.sHolder>(){
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        binding = ActivitySavedFruitsBinding.inflate(layoutInflater)
-        builder = AlertDialog.Builder(this)
-        setContentView(binding.root)
+    private lateinit var mListener: onItemClickListener
 
-        supportActionBar?.title = "Saved Fruits"
-
-        initRecyclerView()
-
+    interface onItemClickListener{
+        fun onItemClick(position: Int)
     }
 
-    private fun initRecyclerView() {
-        var recyclerView  = binding.recyclerSave
+    fun setOnItemClickListener(listener: onItemClickListener){
+        mListener = listener
+    }
 
-        recyclerView.apply {
-            val db = FavoritesDatabase.getFruitsDb(this@FavoriteFruits)
-            db.getFruitsDao().getAllSavedFruits().asLiveData().observe(this@FavoriteFruits){
-                if(it.size == 0){
-                    Toast.makeText(this@FavoriteFruits, "No saved fruits", Toast.LENGTH_SHORT).show()
-                }
-                layoutManager = LinearLayoutManager(this@FavoriteFruits)
-                recAdapter = FavoritesAdapter(it, this@FavoriteFruits)
-                recAdapter.setOnItemClickListener(object : FavoritesAdapter.onItemClickListener{
-                    override fun onItemClick(position: Int) {
-                        intent = Intent(this@FavoriteFruits, ItemDetails::class.java)
-                        intent.putExtra("name", it[position].name)
-                        intent.putExtra("id", it[position].id)
-                        intent.putExtra("family", it[position].family)
-                        intent.putExtra("genus", it[position].genus)
-                        intent.putExtra("order", it[position].order)
-//                            intent.putExtra("image_url", it[position].image_url)
+    class sHolder(item: View , listener: onItemClickListener, context: Context): RecyclerView.ViewHolder(item){
+        val binding = SavedFilmsItemBinding.bind(item)
+        var builder = AlertDialog.Builder(context)
+        val context = context
 
-                        intent.putExtra("carbohydrates", it[position].carbohydrates)
-                        intent.putExtra("protein", it[position].protein)
-                        intent.putExtra("fat", it[position].fat)
-                        intent.putExtra("calories", it[position].calories)
-                        intent.putExtra("sugar", it[position].sugar)
-                        startActivity(intent)
-                    }
-                })
-                adapter = recAdapter
-                recAdapter.notifyDataSetChanged()
+        init{
+            item.setOnClickListener{
+                listener.onItemClick(adapterPosition, )
             }
         }
-    }
-    override fun onBackPressed() {
-        if (backPressedTime + 10 > System.currentTimeMillis()) {
-            super.onBackPressed()
-        } else {
-            builder.setTitle("Exit Saves Fruits")
-                .setMessage("Get out from favourite fruits ?")
-                .setPositiveButton("Yes"){id, it ->
-                    val intent = Intent(this, MainActivity::class.java)
-                    startActivity(intent)
-                }
-                .setNegativeButton("No"){id, it ->
-                    id.cancel()
-                }
-                .show()
+
+        fun bind(movie:Favorite){
+            binding.name.text = movie.name
+
+            val resourceId = when (movie.id % 5) {
+                1 -> R.drawable.dee
+                2 -> R.drawable.dee
+                3 -> R.drawable.dee
+                4->R.drawable.dee
+                // add more cases for other fruit ids
+                else -> R.drawable.dee
+            }
+            binding.fruitImage.setImageResource(resourceId)
         }
-        backPressedTime = System.currentTimeMillis()
+
+
+
+
     }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): sHolder{
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.saved_films_item, parent, false)
+        return sHolder(view, mListener, context)
+    }
+
+    override fun getItemCount(): Int {
+        return sfilmsList.size
+    }
+
+    override fun onBindViewHolder(holder: sHolder, position: Int) {
+        holder.bind(sfilmsList[position])
+        holder.deleteSavedItem(sfilmsList[position])
+    }
+
+
 }
