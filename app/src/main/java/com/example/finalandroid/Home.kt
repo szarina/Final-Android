@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.finalandroid.api.API_instance
 import com.example.finalandroid.api.API_service
 import com.example.finalandroid.data_classes.Film
+import com.example.finalandroid.databinding.ActivityMainBinding
 import com.example.finalandroid.databinding.FragmentFavoriteBinding
 import com.example.finalandroid.databinding.FragmentHomeBinding
 import retrofit2.Call
@@ -23,19 +24,18 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class Home : Fragment() {
-
-    lateinit var binding: FragmentHomeBinding
     lateinit var toggle: ActionBarDrawerToggle
     lateinit var drawerLayout: DrawerLayout
-    lateinit var recyclerViewAdapter: MovieAdapter
+    lateinit var binding: ActivityMainBinding
+    lateinit var recyclerViewAdapter:MovieAdapter
     var backPressedTime: Long = 0
+    lateinit var builder: AlertDialog.Builder
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding= FragmentHomeBinding.inflate(inflater)
-
-
+        binding= FragmentHomeBinding.inflate(layoutInflater)
         drawerLayout = findViewById(R.id.drawer)
         toggle = ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close)
         drawerLayout.addDrawerListener(toggle)
@@ -61,23 +61,13 @@ class Home : Fragment() {
                     recyclerViewAdapter.setOnItemClickListener(object :
                         MovieAdapter.onItemClickListener {
                         override fun onItemClick(position: Int) {
-//                            Toast.makeText(this@MainActivity, "You cliсked $position", Toast.LENGTH_SHORT).show()
-                            intent = Intent(this@MainActivity, filmDetails::class.java)
-                            intent.putExtra("name", filmsList[position].name)
+//                            Toast.makeText(this@Home, "You cliсked $position", Toast.LENGTH_SHORT).show()
+                            intent = Intent(this@Home, filmDetails::class.java)
+                            intent.putExtra("title", filmsList[position].title)
                             intent.putExtra("id", filmsList[position].id)
-                            intent.putExtra("family",filmsList[position].family)
-                            intent.putExtra("genus", filmsList[position].genus)
-                            intent.putExtra("order", filmsList[position].order)
-//                            intent.putExtra("image_url", fruitsList[position].image_url)
-
-                            intent.putExtra(
-                                "carbohydrates",
-                                filmsList[position].nutritions.carbohydrates
-                            )
-                            intent.putExtra("protein", filmsList[position].nutritions.protein)
-                            intent.putExtra("fat", filmsList[position].nutritions.fat)
-                            intent.putExtra("calories", filmsList[position].nutritions.calories)
-                            intent.putExtra("sugar", ffilmsList[position].nutritions.sugar)
+                            intent.putExtra("description",filmsList[position].description)
+                            intent.putExtra("photoLink", filmsList[position].photoLink)
+//                            intent.putExtra("image_url", filmsList[position].image_url)
 
                             startActivity(intent)
                         }
@@ -88,7 +78,7 @@ class Home : Fragment() {
             }
 
             override fun onFailure(call: Call<ArrayList<Film>>, t: Throwable) {
-                Toast.makeText(this@MainActivity, "No internet access try again!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@Home, "No internet access try again!", Toast.LENGTH_SHORT).show()
                 Log.d("onFailure", t.cause.toString())
             }
 
@@ -100,19 +90,12 @@ class Home : Fragment() {
         var recyclerView  = binding.recyclerView
 
         recyclerView.apply {
-            layoutManager = LinearLayoutManager(this@MainActivity)
+            layoutManager = LinearLayoutManager(this@Home)
             recyclerViewAdapter = MovieAdapter()
             adapter = recyclerViewAdapter
         }
     }
 
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if(toggle.onOptionsItemSelected(item)){
-            return true
-        }
-        return super.onOptionsItemSelected(item)
-    }
 
 
 
