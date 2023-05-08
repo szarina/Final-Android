@@ -1,9 +1,6 @@
 package com.example.finalandroid.api
 
-import com.example.finalandroid.data_classes.Comment
-import com.example.finalandroid.data_classes.Favorite
-import com.example.finalandroid.data_classes.Film
-import com.example.finalandroid.data_classes.User
+import com.example.finalandroid.data_classes.*
 import retrofit2.Call
 import retrofit2.http.*
 
@@ -45,6 +42,14 @@ interface API_service {
                          @Field("film") film_id: Int ): Call< Favorite>
 
 
+    @GET("fims/{film_id}/ratings")
+    fun getRatingForFilm(@Path("film_id") film_id: Int): Call <Rating_res>
+
+
+    @POST("ratings")
+    fun addRating( @Field("user") user_id: Int,
+                   @Field("film") film_id: Int,
+                   @Field("rating") rating: Float) : Call<Rating>
 
 
 
