@@ -47,19 +47,20 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView3"
         app:layout_constraintVertical_bias="0.0" />
 
-    <TextView
-            android:id="@+id/description_det"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:maxLines="6"
-            android:text="TextView"
-            android:textColor="@color/black"
-            android:textSize="15sp"
-            app:layout_constraintEnd_toEndOf="@+id/title_det"
-            app:layout_constraintStart_toStartOf="@+id/title_det"
-            app:layout_constraintTop_toBottomOf="@+id/title_det" />
 
+    <TextView
+        android:id="@+id/description_det"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="56dp"
+        android:maxLines="6"
+        android:text="TextView"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="@+id/title_det"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/title_det"
+        app:layout_constraintTop_toBottomOf="@+id/title_det" />
 
 
     <ImageButton
@@ -72,7 +73,7 @@
         app:layout_constraintHorizontal_bias="0.009"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView3"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="1.0" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
