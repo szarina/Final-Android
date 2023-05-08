@@ -18,14 +18,14 @@ class FirstWelcome : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.singin.setOnClickListener {
-            val intent = Intent(this, Login_page::class.java)
+            val intent = Intent(this, Login::class.java)
             startActivity(intent)
         }
 
-        binding.singup.setOnClickListener {
-            val intent = Intent(this, Sign_up::class.java)
-            startActivity(intent)
-        }
+//        binding.singup.setOnClickListener {
+//            val intent = Intent(this, Sign_up::class.java)
+//            startActivity(intent)
+//        }
 
     }
 }

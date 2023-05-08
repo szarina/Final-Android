@@ -4,155 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/grey"
     tools:context=".activities.Sign_up">
 
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="309dp"
-        android:layout_height="211dp"
-        android:layout_marginTop="24dp"
+    <FrameLayout
+        android:id="@+id/client_frag"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/dee" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <EditText
-        android:id="@+id/name_up"
-        android:layout_width="0dp"
-        android:layout_height="38dp"
-        android:layout_marginTop="68dp"
-        android:background="@color/grey"
-        android:drawableLeft="@drawable/person_24"
-        android:drawablePadding="10dp"
-        android:ems="10"
-        android:fontFamily="serif"
-        android:hint="User name"
-        android:inputType="textPersonName"
-        android:paddingLeft="10dp"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/textView3"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/textView3"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
-
-    <EditText
-        android:id="@+id/emial_up"
-        android:layout_width="0dp"
-        android:layout_height="38dp"
-        android:background="@color/grey_lig"
-        android:drawableLeft="@drawable/email_24"
-        android:drawablePadding="10dp"
-        android:ems="10"
-        android:fontFamily="serif"
-        android:hint="Email"
-        android:inputType="textPersonName"
-        android:paddingLeft="10dp"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        tools:layout_editor_absoluteX="99dp"
-        tools:layout_editor_absoluteY="406dp" />
-
-    <EditText
-        android:id="@+id/passw_up"
-        android:layout_width="0dp"
-        android:layout_height="38dp"
-        android:layout_marginTop="8dp"
-        android:background="@color/grey_lig"
-        android:drawableLeft="@drawable/security_24"
-        android:drawablePadding="10dp"
-        android:ems="10"
-        android:fontFamily="serif"
-        android:hint="Password"
-        android:inputType="textPassword"
-        android:paddingLeft="10dp"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/emial_up"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/emial_up"
-        app:layout_constraintTop_toBottomOf="@+id/emial_up" />
-
-    <Button
-        android:id="@+id/sing_up_bnt"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:fontFamily="cursive"
-        android:text="Sing Up"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/conf_pass_up"
-        app:layout_constraintStart_toStartOf="@+id/conf_pass_up"
-        app:layout_constraintTop_toBottomOf="@+id/conf_pass_up" />
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:fontFamily="cursive"
-        android:text="Please Sing Up"
-        android:textColor="@color/black"
-        android:textSize="38sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
-
-    <EditText
-        android:id="@+id/conf_pass_up"
-        android:layout_width="0dp"
-        android:layout_height="38dp"
-        android:layout_marginTop="8dp"
-        android:background="@color/grey_lig"
-        android:drawableLeft="@drawable/security_24"
-        android:drawablePadding="5dp"
-        android:ems="10"
-        android:fontFamily="serif"
-        android:hint="Confirm Password"
-        android:inputType="textPassword"
-        android:paddingLeft="10dp"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white"
-        android:textSize="22sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/passw_up"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/passw_up"
-        app:layout_constraintTop_toBottomOf="@+id/passw_up" />
-
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="70dp"
-        android:layout_height="45dp"
-        android:layout_marginEnd="24dp"
-        android:backgroundTint="@color/grey"
-        android:text="Show"
-        android:textColor="@color/black"
-        android:textSize="11sp"
-        app:layout_constraintBottom_toBottomOf="@+id/passw_up"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/passw_up" />
-
-    <Button
-        android:id="@+id/button4"
-        android:layout_width="70dp"
-        android:layout_height="45dp"
-        android:layout_marginEnd="24dp"
-        android:backgroundTint="@color/grey"
-        android:text="Show"
-        android:textColor="@color/black"
-        android:textSize="11sp"
-        app:layout_constraintBottom_toBottomOf="@+id/conf_pass_up"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/conf_pass_up" />
-
+    </FrameLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
