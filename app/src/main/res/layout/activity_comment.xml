@@ -6,4 +6,44 @@
     android:layout_height="match_parent"
     tools:context=".Comment">
 
+
+    <EditText
+        android:id="@+id/writeCom"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/edittext_bg"
+        app:iconifiedByDefault="false"
+        app:layout_constraintBottom_toTopOf="@+id/recyclerFragment"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.364" />
+
+    <Button
+        android:id="@+id/sendCom"
+        android:layout_width="116dp"
+        android:layout_height="34dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="36dp"
+        android:backgroundTint="#D50617"
+        android:padding="1dp"
+        android:text="Send"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toTopOf="@+id/recyclerFragment"
+        app:layout_constraintStart_toEndOf="@+id/writeCom"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerFragment"
+        android:layout_width="411dp"
+        android:layout_height="550dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.795" />
 </androidx.constraintlayout.widget.ConstraintLayout>
