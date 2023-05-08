@@ -43,7 +43,7 @@
         android:drawablePadding="10dp"
         android:ems="10"
         android:fontFamily="serif"
-        android:hint="Email"
+        android:hint="User name"
         android:inputType="textPersonName"
         android:paddingLeft="10dp"
         android:textColor="@color/white"
