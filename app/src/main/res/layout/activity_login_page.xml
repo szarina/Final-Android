@@ -4,34 +4,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#23282b"
+    android:background="@color/grey_lig"
     tools:context=".activities.Login_page">
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_marginTop="5dp"
-        android:src="@drawable/movie"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.487"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
-        android:fontFamily="cursive"
+        android:fontFamily="serif"
         android:text="Please Sing In"
         android:textColor="@color/white"
-        android:textSize="38sp"
+        android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        tools:layout_editor_absoluteY="182dp" />
 
     <EditText
         android:id="@+id/sing_in_email"
@@ -97,7 +85,7 @@
         android:background="#ff0000"
         android:backgroundTint="#ff0000"
         android:text="Show"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="11sp"
         app:layout_constraintBottom_toBottomOf="@+id/sing_in_password"
         app:layout_constraintEnd_toEndOf="parent"

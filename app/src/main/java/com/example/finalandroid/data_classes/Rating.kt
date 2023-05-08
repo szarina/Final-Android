@@ -1,9 +1,9 @@
 package com.example.finalandroid.data_classes
 
-data class Rating (
+data class Rating(
     val id: Int,
     val user: User,
-    val content: String,
+    val rating: Float,
 
     val film :Film
-    )
+)
