@@ -1,4 +1,4 @@
-package com.example.finalandroid
+package com.example.finalandroid.favorities
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.finalandroid.databinding.FragmentFavoriteBinding
-import com.example.finalandroid.databinding.FragmentHomeBinding
 
 
 class Favorite : Fragment() {
@@ -23,7 +22,7 @@ class Favorite : Fragment() {
 
     companion object {
         @JvmStatic
-        fun newInstance() =Favorite()
+        fun newInstance() = Favorite()
 
     }
 }
