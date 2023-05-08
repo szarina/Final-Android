@@ -1,14 +1,13 @@
 package com.example.finalandroid
-
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.finalandroid.databinding.MovieItemBinding
+import com.example.finalandroid.data_classes.Film
+import com.example.finalandroid.databinding.FilmsItemBinding
+class MovieAdapter: RecyclerView.Adapter<MovieAdapter.movieHolder>() {
 
-class FruitsAdapter: RecyclerView.Adapter<FruitsAdapter.fruitsHolder>() {
-
-    var fruitsList = ArrayList<Movie>()
+    var movieList = ArrayList<Film>()
     private lateinit var mListener: onItemClickListener
 
     interface onItemClickListener{
@@ -19,15 +18,15 @@ class FruitsAdapter: RecyclerView.Adapter<FruitsAdapter.fruitsHolder>() {
         mListener = listener
     }
 
-    fun setList(arr: ArrayList<Movie>){
-        this.fruitsList = arr
+    fun setList(arr: ArrayList<Film>){
+        this.movieList = arr
     }
 
-    class fruitsHolder(item: View, listener: onItemClickListener): RecyclerView.ViewHolder(item){
-        val binding = MovieItemBinding.bind(item)
-        val name = binding.fruitName
-        val family = binding.fruitFamily
-        val order = binding.fruitOrder
+    class movieHolder(item: View, listener: onItemClickListener): RecyclerView.ViewHolder(item){
+        val binding = FilmsItemBinding.bind(item)
+        val name = binding.nameMovie
+        val description = binding.descriptionMovie
+//        val rating = binding.ratingMovie
         val img = binding.imageView
 
         init{
@@ -36,17 +35,17 @@ class FruitsAdapter: RecyclerView.Adapter<FruitsAdapter.fruitsHolder>() {
             }
         }
 
-        fun bindFruits(fruit: Fruit){
-            name.text = fruit.name
-            family.text = fruit.family
-            order.text = fruit.order
-            val resourceId = when (fruit.id % 5) {
-                1 -> R.drawable.logo_cherry
-                2 -> R.drawable.apple
-                3 -> R.drawable.banana
-                4->R.drawable.kiwi
+        fun bindingMovie(movie: Film){
+            name.text = movie.title
+            description.text = movie.description
+//            rating.text = movie.rating
+            val resourceId = when (movie.id % 5) {
+                1 -> R.drawable.dee
+                2 -> R.drawable.dee
+                3 -> R.drawable.dee
+                4->R.drawable.dee
                 // add more cases for other fruit ids
-                else -> R.drawable.orange
+                else -> R.drawable.dee
             }
 
             img.setImageResource(resourceId)
@@ -54,16 +53,16 @@ class FruitsAdapter: RecyclerView.Adapter<FruitsAdapter.fruitsHolder>() {
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): fruitsHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.fruits_item, parent, false)
-        return fruitsHolder(view, mListener)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): movieHolder {
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.films_item, parent, false)
+        return movieHolder(view, mListener)
     }
 
-    override fun onBindViewHolder(holder: fruitsHolder, position: Int) {
-        holder.bindFruits(fruitsList[position])
+    override fun onBindViewHolder(holder: movieHolder, position: Int) {
+        holder.bindingMovie(movieList[position])
     }
 
     override fun getItemCount(): Int {
-        return fruitsList.size
+        return movieList.size
     }
 }
