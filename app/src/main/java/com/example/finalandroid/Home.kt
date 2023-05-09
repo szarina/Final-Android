@@ -11,6 +11,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.finalandroid.api.API_instance
@@ -26,7 +27,7 @@ import retrofit2.Response
 class Home : Fragment() {
     lateinit var toggle: ActionBarDrawerToggle
     lateinit var drawerLayout: DrawerLayout
-    lateinit var binding: ActivityMainBinding
+    lateinit var binding: FragmentHomeBinding
     lateinit var recyclerViewAdapter:MovieAdapter
     var backPressedTime: Long = 0
     lateinit var builder: AlertDialog.Builder
@@ -36,16 +37,15 @@ class Home : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding= FragmentHomeBinding.inflate(layoutInflater)
-        drawerLayout = findViewById(R.id.drawer)
+
+        drawerLayout= findViewById(R.id.drawer2)
         toggle = ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close)
         drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
-
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setHomeButtonEnabled(true)
         initRecyclerView()
         createData()
-
         return binding.root
     }
 
@@ -95,14 +95,6 @@ class Home : Fragment() {
             adapter = recyclerViewAdapter
         }
     }
-
-
-
-
-
-
-
-
 
     companion object {
         @JvmStatic

@@ -51,8 +51,8 @@ class Sign_up : AppCompatActivity() {
         val service = retrofit.create(API_service::class.java)
         val call = service.getUsers()
 
-        call.enqueue(object : Callback<List<User>> {
-            override fun onResponse(call:Call<List<User>>, response: Response<List<User>>) {
+        call.enqueue(object : Callback<ArrayList<User>> {
+            override fun onResponse(call:Call<ArrayList<User>>, response: Response<ArrayList<User>>) {
                 var users = response.body()
                 if (response.isSuccessful) {
                     // Registration successful, navigate to login page
@@ -64,7 +64,7 @@ class Sign_up : AppCompatActivity() {
                 }
             }
 
-            override fun onFailure(call: Call<List<User>>, t: Throwable) {
+            override fun onFailure(call: Call<ArrayList<User>>, t: Throwable) {
                 // Network error occurred
                 Toast.makeText(this@Sign_up, "Network error occurred", Toast.LENGTH_SHORT).show()
             }
