@@ -41,16 +41,27 @@ class Login_page : AppCompatActivity() {
 
         call.enqueue(object : Callback<ArrayList<User>> {
             override fun onResponse(call: Call<ArrayList<User>>, response: Response<ArrayList<User>>) {
-                val authResponse = response.body()
 
                 if (response.isSuccessful == true) {
                     // Authentication successful, navigate to welcome page
+                    val userList = response.body()
+                    val matchingUser = userList?.find { user ->
+                        user.username == username && user.password == password
+                    }
+
+                    if (matchingUser != null) {
+                        // username and password match a user in the list
+                        val intent = Intent(this@Login_page, MainActivity::class.java)
+                        startActivity(intent)
+                        finish()
+                    } else {
+                        // username and password do not match a user in the list
+                        Toast.makeText(this@Login_page, "Invalid username or password", Toast.LENGTH_SHORT).show()
+                    }
                     val intent = Intent(this@Login_page, MainActivity::class.java)
                     startActivity(intent)
                     finish()
-                } else {
-                    // Authentication failed, show error message
-                    Toast.makeText(this@Login_page, "Authentication failed", Toast.LENGTH_SHORT).show()
+
                 }
             }
 
