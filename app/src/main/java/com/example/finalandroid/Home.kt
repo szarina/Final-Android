@@ -38,7 +38,7 @@ class Home : Fragment() {
     ): View? {
         binding= FragmentHomeBinding.inflate(layoutInflater)
 
-        drawerLayout= findViewById(R.id.drawer2)
+        drawerLayout= binding.drawer2
         toggle = ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close)
         drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
