@@ -27,7 +27,7 @@ interface API_service {
     fun getUsers(): Call <ArrayList <User> >
 
     @POST("users")
-    fun addUser(@Field("usernaame") username: String,
+    fun addUser(@Field("username") username: String,
                 @Field("email") email: String ,
                 @Field("password") password:String) :Call <User>
 
