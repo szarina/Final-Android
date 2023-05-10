@@ -58,9 +58,7 @@ class Login_page : AppCompatActivity() {
                         // username and password do not match a user in the list
                         Toast.makeText(this@Login_page, "Invalid username or password", Toast.LENGTH_SHORT).show()
                     }
-                    val intent = Intent(this@Login_page, MainActivity::class.java)
-                    startActivity(intent)
-                    finish()
+
 
                 }
             }

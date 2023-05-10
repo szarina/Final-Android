@@ -12,7 +12,10 @@ import com.example.finalandroid.api.API_service
 import com.example.finalandroid.data_classes.User
 import okhttp3.Call
 import okhttp3.Callback
+import okhttp3.MediaType.Companion.toMediaTypeOrNull
+import okhttp3.RequestBody.Companion.toRequestBody
 import okhttp3.Response
+import org.json.JSONObject
 
 class Sign_up : AppCompatActivity() {
     private lateinit var etUsername: EditText
@@ -47,28 +50,29 @@ class Sign_up : AppCompatActivity() {
         }
     }
 //    private fun registerUser(username: String, email: String, password: String) {
-        val retrofit = API_instance.getApiInstance()
-        val service = retrofit.create(API_service::class.java)
-        val call = service.getUsers()
 
-        call.enqueue(object : Callback<ArrayList<User>> {
-            override fun onResponse(call:Call<ArrayList<User>>, response: Response<ArrayList<User>>) {
-                var users = response.body()
-                if (response.isSuccessful) {
-                    // Registration successful, navigate to login page
-                    navigateToLogin()
-                } else {
-                    // Registration failed, display error message
-                    val errorResponse = response.errorBody()?.string()
-                    Toast.makeText(this@Sign_up, errorResponse, Toast.LENGTH_SHORT).show()
-                }
-            }
+        val apiService = API_instance.getApiInstance().create(API_service::class.java)
+        val jsonObject = JSONObject()
+        jsonObject.put("username", etUsername.text.toString())
+        jsonObject.put("password", etPassword.text.toString())
+        jsonObject.put("email", etEmail.text.toString())
 
-            override fun onFailure(call: Call<ArrayList<User>>, t: Throwable) {
-                // Network error occurred
-                Toast.makeText(this@Sign_up, "Network error occurred", Toast.LENGTH_SHORT).show()
-            }
-        })
+        // Convert JSONObject to String
+        val jsonObjectString = jsonObject.toString()
+
+        // Create RequestBody ( We're not using any converter, like GsonConverter, MoshiConverter e.t.c, that's why we use RequestBody )
+        val requestBody = jsonObject.toString().toRequestBody("application/json".toMediaTypeOrNull())
+        val call = apiService.addUser2(requestBody)
+        if(call.isSuccessful){
+            navigateToLogin()
+        }
+        else{
+            Toast.makeText(this@Sign_up, "Network error occurred", Toast.LENGTH_SHORT).show()
+        }
+
+
+
+
     }
 
     private fun navigateToLogin() {
