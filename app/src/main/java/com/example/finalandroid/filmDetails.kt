@@ -7,15 +7,15 @@ import android.view.View
 import android.widget.Button
 import android.widget.RatingBar
 import android.widget.Toast
-<<<<<<< HEAD
+
 
 import com.bumptech.glide.Glide
 
-=======
+
 import androidx.core.content.ContentProviderCompat.requireContext
 import com.example.finalandroid.api.API_instance
 import com.example.finalandroid.api.API_service
->>>>>>> 50ed54d738651a55b3f96accab33f64ba9a9a527
+
 import com.example.finalandroid.comment.Comment
 import com.example.finalandroid.data_classes.Rating_res
 import com.example.finalandroid.databinding.ActivityFilmDetailsBinding
@@ -25,12 +25,11 @@ import retrofit2.Response
 
 class filmDetails : AppCompatActivity() {
     lateinit var binding: ActivityFilmDetailsBinding
-<<<<<<< HEAD
+
     lateinit var bundle: Bundle
-    override fun onCreate(savedInstanceState: Bundle?) {
-=======
+
     override fun onCreate( savedInstanceState: Bundle?) {
->>>>>>> 50ed54d738651a55b3f96accab33f64ba9a9a527
+
         super.onCreate(savedInstanceState)
 
         binding= ActivityFilmDetailsBinding.inflate(layoutInflater)
@@ -39,16 +38,16 @@ class filmDetails : AppCompatActivity() {
             val intent = Intent(this, Comment::class.java)
             startActivity(intent)
         }
-
+        val user_id = bundle.getInt("user_id")
+        val film_id = bundle.getInt("film_id")
         binding.ratingBar.setOnClickListener {
             val filmId = "your_film_id"
             val msg = binding.ratingBar.rating
 //            Toast.makeText(this@filmDetails,
 //                "Rating is: "+msg, Toast.LENGTH_SHORT).show()
-            submitRating(filmId,msg)
+            submitRating(film_id,msg)
         }
 
-<<<<<<< HEAD
         binding.saveImgBtn.setOnClickListener{
 
         }
@@ -68,10 +67,9 @@ class filmDetails : AppCompatActivity() {
             .fallback(R.drawable.image)
             .into(img)
 
-=======
 
     }
-    private fun submitRating(filmId: String, ratingValue: Float) {
+    private fun submitRating(filmId: Int, ratingValue: Float) {
         val apiService = API_instance.getApiInstance().create(API_service::class.java)
         val call = apiService.getRatingForFilm(filmId)
 
@@ -81,12 +79,12 @@ class filmDetails : AppCompatActivity() {
                     // Rating submitted successfully
                     val ratingList = response.body()
                     // Handle the API response as needed
-                    Toast.makeText(requireContext(), "Rating submitted successfully", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@filmDetails, "Rating submitted successfully", Toast.LENGTH_SHORT).show()
                 } else {
                     // Rating submission failed
                     val errorMessage = response.errorBody()?.string()
                     // Handle the error message
-                    Toast.makeText(requireContext(), "Rating submission failed: $errorMessage", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@filmDetails, "Rating submission failed: $errorMessage", Toast.LENGTH_SHORT).show()
                 }
             }
 
@@ -95,10 +93,9 @@ class filmDetails : AppCompatActivity() {
             
             override fun onFailure(call: Call<ArrayList<Rating_res>>, t: Throwable) {
                 // Handle the failure scenario
-                Toast.makeText(requireContext(), "Rating submission failed: ${t.message}", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@filmDetails, "Rating submission failed: ${t.message}", Toast.LENGTH_SHORT).show()
             }
         })
->>>>>>> 50ed54d738651a55b3f96accab33f64ba9a9a527
     }
 
 }
