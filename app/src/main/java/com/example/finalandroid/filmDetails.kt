@@ -3,6 +3,7 @@ package com.example.finalandroid
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.RatingBar
@@ -39,25 +40,33 @@ class filmDetails : AppCompatActivity() {
             val intent = Intent(this, Comment::class.java)
             startActivity(intent)
         }
-
+        try{
+        bundle = intent.extras!!
         val user_id = bundle.getInt("user_id")
         val film_id = bundle.getInt("film_id")
         val username = bundle.getString("username")
         val description = bundle.getString("description")
         val title = bundle.getString("title")
         val photoLink = bundle.getString("photoLink")
-
-        createPage(user_id, film_id, description!!, title!!, photoLink!!)
+        Log.d("data","user_id - ${user_id} ,film_id - ${film_id}" +
+                ",description- ${description},title -${title}" +
+                "+photoLink - ${photoLink}")
+        createPage(user_id, film_id, description!!, title!!, photoLink!!)}
+        catch (exception :java.lang.Exception){
+            exception.printStackTrace()
+        }
 
         binding.ratingBar.setOnClickListener {
             val msg = binding.ratingBar.rating
+            val film_id=1
 //            Toast.makeText(this@filmDetails,
 //                "Rating is: "+msg, Toast.LENGTH_SHORT).show()
             submitRating(film_id, msg)
         }
 
         binding.saveImgBtn.setOnClickListener {
-            addFilmToFavorites(user_id,film_id)
+//            addFilmToFavorites(user_id,film_id)
+            addFilmToFavorites(1,1)
         }
     }
 

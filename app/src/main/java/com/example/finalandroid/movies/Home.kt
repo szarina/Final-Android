@@ -71,7 +71,7 @@ class Home : Fragment() {
                             intent.putExtra("title", filmsList[position].title)
                             intent.putExtra("film_id", filmsList[position].id)
                             intent.putExtra("description",filmsList[position].description)
-                            intent.putExtra("photoLink", filmsList[position].photoLink)
+                            intent.putExtra("photoLink", filmsList[position].photo_link)
                             intent.putExtra("user_id", user_id)
                             intent.putExtra("username", username)
 

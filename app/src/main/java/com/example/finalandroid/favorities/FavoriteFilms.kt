@@ -8,12 +8,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.finalandroid.api.API_instance
 import com.example.finalandroid.api.API_service
 import com.example.finalandroid.data_classes.Favorite
-import com.example.finalandroid.data_classes.Film
 import com.example.finalandroid.databinding.FragmentFavoriteBinding
 import com.example.finalandroid.filmDetails
 import retrofit2.Call
@@ -60,7 +58,7 @@ class FavoriteFilms : Fragment() {
                             intent.putExtra("username", favoriteList[position].user.username)
                             intent.putExtra("description", favoriteList[position].film.description)
                             intent.putExtra("title", favoriteList[position].film.title)
-                            intent.putExtra("photoLink", favoriteList[position].film.photoLink)
+                            intent.putExtra("photoLink", favoriteList[position].film.photo_link)
                             startActivity(intent)
                         }
                     })
