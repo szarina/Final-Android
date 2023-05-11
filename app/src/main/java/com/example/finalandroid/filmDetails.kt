@@ -58,6 +58,9 @@ class filmDetails : AppCompatActivity() {
                 }
             }
 
+
+
+            
             override fun onFailure(call: Call<ArrayList<Rating_res>>, t: Throwable) {
                 // Handle the failure scenario
                 Toast.makeText(requireContext(), "Rating submission failed: ${t.message}", Toast.LENGTH_SHORT).show()
