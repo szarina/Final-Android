@@ -10,22 +10,22 @@ import com.example.finalandroid.R
 import com.example.finalandroid.data_classes.Favorite
 import com.example.finalandroid.databinding.SavedFilmsItemBinding
 
-class FavoritesAdapter(var sfilmsList:List<FavoriteFilms>, val context: Context) : RecyclerView.Adapter<FavoritesAdapter.sHolder>(){
-
+class FavoritesAdapter : RecyclerView.Adapter<FavoritesAdapter.sHolder>(){
+    var favoriteList= ArrayList<Favorite>()
     private lateinit var mListener: onItemClickListener
 
     interface onItemClickListener{
         fun onItemClick(position: Int)
     }
-
+    fun setList(arr: ArrayList<Favorite>){
+        this.favoriteList  = arr
+    }
     fun setOnItemClickListener(listener: onItemClickListener){
         mListener = listener
     }
 
-    class sHolder(item: View , listener: onItemClickListener, context: Context): RecyclerView.ViewHolder(item){
+    class sHolder(item: View , listener: onItemClickListener): RecyclerView.ViewHolder(item){
         val binding = SavedFilmsItemBinding.bind(item)
-        var builder = AlertDialog.Builder(context)
-        val context = context
 
         init{
             item.setOnClickListener{
@@ -34,7 +34,8 @@ class FavoritesAdapter(var sfilmsList:List<FavoriteFilms>, val context: Context)
         }
 
         fun bind(movie:Favorite){
-            binding.name.text = movie.film
+            binding.name.text = movie.film.title
+
             val resourceId = when (movie.id % 5) {
                 1 -> R.drawable.dee
                 2 -> R.drawable.dee
@@ -53,7 +54,7 @@ class FavoritesAdapter(var sfilmsList:List<FavoriteFilms>, val context: Context)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): sHolder{
         val view = LayoutInflater.from(parent.context).inflate(R.layout.saved_films_item, parent, false)
-        return sHolder(view, mListener, context)
+        return sHolder(view, mListener)
     }
 
     override fun onBindViewHolder(holder: sHolder, position: Int) {
@@ -61,7 +62,7 @@ class FavoritesAdapter(var sfilmsList:List<FavoriteFilms>, val context: Context)
     }
 
     override fun getItemCount(): Int {
-        return sfilmsList.size
+        return  favoriteList .size
     }
 
 
