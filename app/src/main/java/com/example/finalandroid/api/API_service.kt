@@ -34,7 +34,7 @@ interface API_service {
                 @Field("email") email: String ,
                 @Field("password") password:String) :Call < User >
 
-    @POST("users")
+    @POST("users/")
     fun addUser2(@Body requestBody: RequestBody): Response<ResponseBody>
 
     @GET("users/{user_id}/favorites")

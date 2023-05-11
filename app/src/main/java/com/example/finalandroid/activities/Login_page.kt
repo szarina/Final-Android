@@ -15,7 +15,7 @@ import com.example.finalandroid.databinding.ActivityLoginPageBinding
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-
+import kotlin.reflect.typeOf
 
 
 class Login_page : AppCompatActivity() {
@@ -46,6 +46,7 @@ class Login_page : AppCompatActivity() {
                 if (response.isSuccessful == true) {
                     // Authentication successful, navigate to welcome page
                     val userList = response.body()
+
                     val matchingUser = userList?.find { user ->
                         user.username == username && user.password == password
                     }
