@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+    <!--permissions for INTERNET-->
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:allowBackup="true"
@@ -20,7 +23,7 @@
         <activity
             android:name=".FirstWelcome"
             android:exported="false"
-            android:label="@string/title_activity_first_welcome"
+            android:label="Welcome"
             android:theme="@style/Theme.FinalAndroid.NoActionBar" />
         <activity
             android:name=".Comment"

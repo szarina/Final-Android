@@ -2,15 +2,15 @@ package com.example.finalandroid.favorities
 
 import android.app.AlertDialog
 import android.content.Context
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.finalandroid.R
+import com.example.finalandroid.data_classes.Favorite
 import com.example.finalandroid.databinding.SavedFilmsItemBinding
 
-class FavoritesAdapter(var sfilmsList:List<Favorite>, val context: Context) : RecyclerView.Adapter<FavoritesAdapter.sHolder>(){
+class FavoritesAdapter(var sfilmsList:List<FavoriteFilms>, val context: Context) : RecyclerView.Adapter<FavoritesAdapter.sHolder>(){
 
     private lateinit var mListener: onItemClickListener
 
@@ -34,8 +34,7 @@ class FavoritesAdapter(var sfilmsList:List<Favorite>, val context: Context) : Re
         }
 
         fun bind(movie:Favorite){
-            binding.name.text = movie.name
-
+            binding.name.text = movie.film
             val resourceId = when (movie.id % 5) {
                 1 -> R.drawable.dee
                 2 -> R.drawable.dee
@@ -44,7 +43,7 @@ class FavoritesAdapter(var sfilmsList:List<Favorite>, val context: Context) : Re
                 // add more cases for other fruit ids
                 else -> R.drawable.dee
             }
-            binding.fruitImage.setImageResource(resourceId)
+            binding.filmImage.setImageResource(resourceId)
         }
 
 
@@ -55,6 +54,10 @@ class FavoritesAdapter(var sfilmsList:List<Favorite>, val context: Context) : Re
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): sHolder{
         val view = LayoutInflater.from(parent.context).inflate(R.layout.saved_films_item, parent, false)
         return sHolder(view, mListener, context)
+    }
+
+    override fun onBindViewHolder(holder: sHolder, position: Int) {
+        TODO("Not yet implemented")
     }
 
     override fun getItemCount(): Int {

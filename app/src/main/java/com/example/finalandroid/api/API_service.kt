@@ -1,7 +1,10 @@
 package com.example.finalandroid.api
 
 import com.example.finalandroid.data_classes.*
+import okhttp3.RequestBody
+import okhttp3.ResponseBody
 import retrofit2.Call
+import retrofit2.Response
 import retrofit2.http.*
 
 interface API_service {
@@ -27,9 +30,12 @@ interface API_service {
     fun getUsers(): Call <ArrayList <User> >
 
     @POST("users")
-    fun addUser(@Field("usernaame") username: String,
+    fun addUser(@Field("username") username: String,
                 @Field("email") email: String ,
-                @Field("password") password:String) :Call <User>
+                @Field("password") password:String) :Call < User >
+
+    @POST("users")
+    fun addUser2(@Body requestBody: RequestBody): Response<ResponseBody>
 
     @GET("users/{user_id}/favorites")
     fun getUserFavorites(@Path("user_id") user_id: Int ): Call< ArrayList <Favorite> >

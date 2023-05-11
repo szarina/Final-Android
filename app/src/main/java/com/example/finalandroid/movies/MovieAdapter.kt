@@ -1,8 +1,10 @@
-package com.example.finalandroid
+package com.example.finalandroid.movies
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.example.finalandroid.R
 import com.example.finalandroid.data_classes.Film
 import com.example.finalandroid.databinding.FilmsItemBinding
 class MovieAdapter: RecyclerView.Adapter<MovieAdapter.movieHolder>() {
@@ -37,16 +39,13 @@ class MovieAdapter: RecyclerView.Adapter<MovieAdapter.movieHolder>() {
         fun bindingMovie(movie: Film){
             name.text = movie.title
             description.text = movie.description
-            val resourceId = when (movie.id % 5) {
-                1 -> R.drawable.dee
-                2 -> R.drawable.dee
-                3 -> R.drawable.dee
-                4->R.drawable.dee
-                // add more cases for other fruit ids
-                else -> R.drawable.dee
-            }
-
-            img.setImageResource(resourceId)
+            val url = movie.photoLink
+            Glide.with(img)
+                .load(url)
+                .placeholder(R.drawable.image)
+                .error(R.drawable.image)
+                .fallback(R.drawable.image)
+                .into(img)
 
         }
     }

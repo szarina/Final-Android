@@ -3,8 +3,8 @@ package com.example.finalandroid.activities
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import com.example.finalandroid.favorities.Favorite
-import com.example.finalandroid.Home
+import com.example.finalandroid.favorities.FavoriteFilms
+import com.example.finalandroid.movies.Home
 import com.example.finalandroid.Profile
 import com.example.finalandroid.R
 import com.example.finalandroid.databinding.ActivityMainBinding
@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
         binding.bottomNavigationView.setOnItemSelectedListener {
             when (it.itemId) {
                 R.id.home -> replaceFragment(Home())
-                R.id.add -> replaceFragment(Favorite())
+                R.id.add -> replaceFragment(FavoriteFilms())
                 R.id.profile -> replaceFragment(Profile())
             }
             true
