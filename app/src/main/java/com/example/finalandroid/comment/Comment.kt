@@ -3,6 +3,7 @@ package com.example.finalandroid.comment
 
 import android.content.Intent
 import android.os.Bundle
+import android.text.Editable
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -11,17 +12,14 @@ import android.view.ViewGroup
 import android.widget.Toast
 
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.finalandroid.R
 import com.example.finalandroid.api.API_instance
 import com.example.finalandroid.api.API_service
+import com.example.finalandroid.data_classes.User
 import com.example.finalandroid.databinding.ActivityCommentBinding
-
-import com.example.finalandroid.databinding.CommentItemBinding
 
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.util.zip.Inflater
 
 class Comment : Fragment() {
 
@@ -36,15 +34,24 @@ class Comment : Fragment() {
         initRecyclerView()
         createData()
 
+        val username = arguments?.getString("username")
+        val user_id = arguments?.getInt("user_id", -1)
+        val film_id = arguments?.getInt("film_id",-1)
 
+        val content = binding.writeCom.text
+
+        binding.sendCom.setOnClickListener {
+            if (username != null && content!=null && user_id != null && film_id!=null ) {
+                writeComment(username, content.toString(), user_id,film_id)
+            }
+        }
         return binding.root
     }
 
 
     private fun createData() {
-        val username = arguments?.getString("username")
-        val id = arguments?.getInt("id", -1)
-        val content = arguments?.getString("content")
+
+
 
         val api = API_instance.getApiInstance().create(API_service::class.java)
         val call = api.getFilmComments(1)
@@ -74,6 +81,31 @@ class Comment : Fragment() {
         })
 
     }
+    fun writeComment(username: String, content: String, user_id:Int, film_id:Int) {
+
+        val apiService = API_instance.getApiInstance().create(API_service::class.java)
+
+
+        val  call = apiService.addComment(user_id,film_id,user_id,content)
+        call.enqueue(object : retrofit2.Callback<ArrayList<CommentEntity>> {
+            override fun onResponse(call: retrofit2.Call<ArrayList<CommentEntity>>, response: retrofit2.Response<ArrayList<CommentEntity>>) {
+
+                if (response.isSuccessful == true) {
+                    // Authentication successful, navigate to welcome page
+                    val commentList = response.body()
+
+
+
+                }
+            }
+
+            override fun onFailure(call: retrofit2.Call<ArrayList<CommentEntity>>, t: Throwable) {
+                // API call failed, show error message
+                Toast.makeText(requireContext(), "API call failed: ${t.message}", Toast.LENGTH_SHORT).show()
+
+            }
+        })
+    }
 
     private fun initRecyclerView() {
         var recyclerView  = binding.recyclerComment
@@ -84,8 +116,8 @@ class Comment : Fragment() {
             adapter = recyclerViewAdapter
         }
     }
-companion object{
-    @JvmStatic
-    fun newInstance()=Comment()
-}
+//companion object{
+//    @JvmStatic
+//    fun newInstance()=Comment()
+//}
 }
