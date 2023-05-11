@@ -87,7 +87,7 @@ class Comment : Fragment() {
 
 
         val  call = apiService.addComment(user_id,film_id,user_id,content)
-        call.enqueue(object : retrofit2.Callback<ArrayList<CommentEntity>> {
+        call.enqueue(object : Callback<ArrayList<CommentEntity>> {
             override fun onResponse(call: retrofit2.Call<ArrayList<CommentEntity>>, response: retrofit2.Response<ArrayList<CommentEntity>>) {
 
                 if (response.isSuccessful == true) {

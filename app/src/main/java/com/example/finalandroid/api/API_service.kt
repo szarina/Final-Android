@@ -24,7 +24,7 @@ interface API_service {
     fun  addComment(@Path("film_id_path") film_id_path: Int,
                     @Field("user") user_id: Int,
                     @Field("film") film_id: Int ,
-                    @Field("content") content:String):Call <CommentEntity>
+                    @Field("content") content:String):Call <ArrayList<CommentEntity>>
 
 
     @GET("users")
@@ -50,7 +50,7 @@ interface API_service {
 
 
     @GET("fims/{film_id}/ratings")
-    fun getRatingForFilm(@Path("film_id") film_id: Int): Call <Rating_res>
+    fun getRatingForFilm(@Path("film_id") film_id: Int): Call <ArrayList <Rating_res>>
 
 
     @POST("ratings")
