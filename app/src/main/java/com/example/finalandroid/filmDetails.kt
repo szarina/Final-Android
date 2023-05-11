@@ -38,10 +38,17 @@ class filmDetails : AppCompatActivity() {
             val intent = Intent(this, Comment::class.java)
             startActivity(intent)
         }
+
         val user_id = bundle.getInt("user_id")
         val film_id = bundle.getInt("film_id")
+        val username = bundle.getString("username")
+        val description = bundle.getString("description")
+        val title = bundle.getString("title")
+        val photoLink =bundle.getString("photoLink")
+
+        createPage(user_id,film_id,description!!,title!!,photoLink!!)
+
         binding.ratingBar.setOnClickListener {
-            val filmId = "your_film_id"
             val msg = binding.ratingBar.rating
 //            Toast.makeText(this@filmDetails,
 //                "Rating is: "+msg, Toast.LENGTH_SHORT).show()
@@ -49,16 +56,16 @@ class filmDetails : AppCompatActivity() {
         }
 
         binding.saveImgBtn.setOnClickListener{
-
+            addFilmToFavorites()
         }
     }
 
-    private fun createPage(){
-        binding.titleDet.text=bundle!!.getString("title")
-        binding.descriptionDet.text=bundle!!.getString("description")
+    private fun createPage(user_id:Int,film_id:Int,description:String,title:String,photoLink:String){
+        binding.titleDet.text=title
+        binding.descriptionDet.text=description
 
         val img = binding.imageView3
-        val url=bundle!!.getString("photoLink")
+        val url= photoLink
 
         Glide.with(img)
             .load(url)
@@ -96,6 +103,11 @@ class filmDetails : AppCompatActivity() {
                 Toast.makeText(this@filmDetails, "Rating submission failed: ${t.message}", Toast.LENGTH_SHORT).show()
             }
         })
+    }
+
+    private  fun addFilmToFavorites(){
+
+        
     }
 
 }
