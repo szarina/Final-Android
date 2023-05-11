@@ -29,7 +29,7 @@ class FavoritesAdapter : RecyclerView.Adapter<FavoritesAdapter.sHolder>(){
     class sHolder(item: View , listener: onItemClickListener): RecyclerView.ViewHolder(item){
         val binding = SavedFilmsItemBinding.bind(item)
         val name = binding.name
-        val description = binding.deleteBtn
+        val delete = binding.deleteBtn
         val img = binding.filmImage
         init{
             item.setOnClickListener{

@@ -25,13 +25,15 @@
             android:name=".SplashScreen"
             android:exported="false" />
         <activity
-            android:name=".FirstWelcome"
-            android:exported="false"
-            android:label="Welcome"
-            android:theme="@style/Theme.FinalAndroid.NoActionBar" />
-        <activity
-            android:name=".Comment"
+            android:name=".comment.Comment"
             android:exported="false" />
+        <activity
+            android:name=".movies.Home"
+            android:exported="false" />
+        <activity
+            android:name=".favorities.FavoriteFilms"
+            android:exported="false" />
+
         <activity
             android:name=".filmDetails"
             android:exported="false" />
@@ -40,7 +42,13 @@
             android:exported="false" />
         <activity
             android:name=".activities.Login_page"
-            android:exported="true">
+            android:exported="false" />
+
+        <activity
+            android:name=".FirstWelcome"
+            android:exported="true"
+            android:label="Welcome"
+            android:theme="@style/Theme.FinalAndroid.NoActionBar" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -29,33 +29,32 @@ class Sign_up : AppCompatActivity() {
         etUsername = findViewById(R.id.name_up)
         etEmail = findViewById(R.id.emial_up)
         etPassword = findViewById(R.id.passw_up)
-        etConf_pass_up= findViewById(R.id.conf_pass_up)
+        etConf_pass_up = findViewById(R.id.conf_pass_up)
         btnRegister = findViewById(R.id.sing_up_bnt)
 
         btnRegister.setOnClickListener {
-            if(etUsername.text.toString().isEmpty()) etUsername.error = "Empty username"
+            if (etUsername.text.toString().isEmpty()) etUsername.error = "Empty username"
+            else if (etPassword.text.toString().length < 5) etPassword.error =
+                "Password must be more than 6"
+            else if (etConf_pass_up.text.toString() != etPassword.text.toString()) etConf_pass_up.error =
+                "Don't same passwords"
+            else {
 
-            else if( etPassword.text.toString().length <5)  etPassword.error = "Password must be more than 6"
-            else if(  etConf_pass_up.text.toString() != etPassword.text.toString())   etConf_pass_up.error = "Don't same passwords"
-            else{
-
-                val temp = User(
-                    null,
+                registerUser(
                     etUsername.text.toString(),
                     etEmail.text.toString(),
                     etPassword.text.toString()
                 )
-            // Make API request for user registration
-//            registerUser(etUsername, etEmail, etPassword)
+            }
         }
     }
-//    private fun registerUser(username: String, email: String, password: String) {
+    fun registerUser(username: String, email: String, password: String) {
 
         val apiService = API_instance.getApiInstance().create(API_service::class.java)
         val jsonObject = JSONObject()
-        jsonObject.put("username", etUsername.text.toString())
-        jsonObject.put("password", etPassword.text.toString())
-        jsonObject.put("email", etEmail.text.toString())
+        jsonObject.put("username", username)
+        jsonObject.put("password",password)
+        jsonObject.put("email", email)
 
         // Convert JSONObject to String
         val jsonObjectString = jsonObject.toString()

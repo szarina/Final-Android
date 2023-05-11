@@ -53,7 +53,7 @@ class Home : Fragment() {
 
     private fun createData() {
         val username = arguments?.getString("username")
-        val id = arguments?.getInt("id", -1)
+        val id = arguments?.getInt("user_id", -1)
         val email = arguments?.getString("email")
 
         val api = API_instance.getApiInstance().create(API_service::class.java)
