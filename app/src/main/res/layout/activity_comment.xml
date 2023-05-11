@@ -6,12 +6,31 @@
     android:layout_height="match_parent"
     tools:context=".comment.Comment">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="Rate Movie"
+        android:textStyle="normal"
+        android:textSize="20dp"
+
+        app:layout_constraintBottom_toTopOf="@+id/ratingBar2"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <RatingBar
+        android:id="@+id/ratingBar2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="44dp" />
 
     <EditText
         android:id="@+id/writeCom"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="96dp"
         android:layout_marginEnd="8dp"
         android:background="@drawable/edittext_bg"
         app:iconifiedByDefault="false"
@@ -26,8 +45,8 @@
         android:id="@+id/sendCom"
         android:layout_width="116dp"
         android:layout_height="34dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="88dp"
         android:backgroundTint="#D50617"
         android:padding="1dp"
         android:text="Send"

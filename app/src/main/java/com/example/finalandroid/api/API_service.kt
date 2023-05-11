@@ -19,7 +19,7 @@ interface API_service {
     @GET("films/{film_id}/comments")
     fun  getFilmComments(@Path("film_id") film_id: Int):Call <ArrayList<CommentEntity> >
 
-
+    @FormUrlEncoded
     @POST("films/{film_id_path}/comments")
     fun  addComment(@Path("film_id_path") film_id_path: Int,
                     @Field("user") user_id: Int,
@@ -42,7 +42,7 @@ interface API_service {
     fun getUserFavorites(@Path("user_id") user_id: Int ): Call< ArrayList <Favorite> >
 
 
-
+    @FormUrlEncoded
     @POST("users/{user_id_path}/favorites")
     fun addUserFavorites(@Path("user_id_path") user_id_path: Int,
                          @Field("user") user_id: Int,
@@ -52,7 +52,7 @@ interface API_service {
     @GET("fims/{film_id}/ratings")
     fun getRatingForFilm(@Path("film_id") film_id: Int): Call <ArrayList <Rating_res>>
 
-
+    @FormUrlEncoded
     @POST("ratings")
     fun addRating( @Field("user") user_id: Int,
                    @Field("film") film_id: Int,

@@ -17,6 +17,7 @@ import com.example.finalandroid.api.API_instance
 import com.example.finalandroid.api.API_service
 
 import com.example.finalandroid.comment.Comment
+import com.example.finalandroid.data_classes.Favorite
 import com.example.finalandroid.data_classes.Rating_res
 import com.example.finalandroid.databinding.ActivityFilmDetailsBinding
 import retrofit2.Call
@@ -56,7 +57,7 @@ class filmDetails : AppCompatActivity() {
         }
 
         binding.saveImgBtn.setOnClickListener {
-            addFilmToFavorites()
+            addFilmToFavorites(user_id,film_id)
         }
     }
 
@@ -69,7 +70,7 @@ class filmDetails : AppCompatActivity() {
     ) {
         binding.titleDet.text = title
         binding.descriptionDet.text = description
-
+        binding.ratingTxt.text = getRatingOfFilm(film_id).toString()
         val img = binding.imageView3
         val url = photoLink
 
@@ -125,10 +126,36 @@ class filmDetails : AppCompatActivity() {
         })
     }
 
-    private fun addFilmToFavorites() {
+    private fun addFilmToFavorites(user_id:Int,film_id:Int) {
+        val apiService = API_instance.getApiInstance().create(API_service::class.java)
+        val call = apiService.addUserFavorites(user_id, user_id, film_id)
 
+        call.enqueue(object : Callback<ArrayList<Favorite>> {
+            override fun onResponse(
+                call: Call<ArrayList<Favorite>>,
+                response: Response<ArrayList<Favorite>>
+            ) {
+                if (response.isSuccessful) {
+                    // Rating submitted successfully
+                    val ratingList = response.body()
+                    // Handle the API response as needed
+                }
+            }
+
+
+            override fun onFailure(call: Call<ArrayList<Favorite>>, t: Throwable) {
+                // Handle the failure scenario
+                Toast.makeText(
+                    this@filmDetails,
+                    "Couldn't find rating of a film: ${t.message}",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+        })
 
     }
+
+
 
     private fun getRatingOfFilm(film_id: Int, ) :Float{
         val apiService = API_instance.getApiInstance().create(API_service::class.java)
@@ -144,7 +171,7 @@ class filmDetails : AppCompatActivity() {
                     val ratingList = response.body()
                     // Handle the API response as needed
                     result = ratingList?.get(0)?.rating
-                } 
+                }
             }
 
 
