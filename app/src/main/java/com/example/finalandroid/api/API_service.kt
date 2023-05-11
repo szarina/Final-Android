@@ -30,13 +30,14 @@ interface API_service {
     @GET("users")
     fun getUsers(): Call <ArrayList <User> >
 
+    @FormUrlEncoded
     @POST("users")
     fun addUser(@Field("username") username: String,
                 @Field("email") email: String ,
-                @Field("password") password:String) :Call < User >
+                @Field("password") password:String) :Call < ArrayList<User> >
 
     @POST("users/")
-    fun addUser2(@Body requestBody: RequestBody): Response<ResponseBody>
+    fun addUser2(@Body requestBody: RequestBody):  Response<ResponseBody>
 
     @GET("users/{user_id}/favorites")
     fun getUserFavorites(@Path("user_id") user_id: Int ): Call< ArrayList <Favorite> >
