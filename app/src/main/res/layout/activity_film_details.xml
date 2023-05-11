@@ -13,6 +13,7 @@
         android:id="@+id/imageView3"
         android:layout_width="0dp"
         android:layout_height="250dp"
+        android:layout_marginStart="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -29,16 +30,16 @@
         app:cardCornerRadius="12dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.467">
+        app:layout_constraintVertical_bias="0.46">
 
 
         <TextView
             android:id="@+id/description_det"
             android:layout_width="wrap_content"
-            android:layout_height="33dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="56dp"
             android:maxLines="6"
             android:text="TextView"
@@ -49,32 +50,52 @@
             app:layout_constraintStart_toStartOf="@+id/title_det"
             app:layout_constraintTop_toBottomOf="@+id/title_det" />
 
+
+        <ImageButton
+            android:id="@+id/saveImgBtn"
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+            android:src="@drawable/baseline_favorite_border_24"
+            app:layout_constraintBottom_toTopOf="@+id/title_det"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView3"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <RatingBar
+            android:id="@+id/ratingBar"
+            android:layout_width="191dp"
+            android:layout_height="145dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/description_det"
+            app:layout_constraintVertical_bias="0.06999999" />
+
         <TextView
             android:id="@+id/title_det"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="60dp"
+            android:layout_marginEnd="8dp"
             android:text="TextView"
             android:textColor="@color/black"
             android:textSize="20sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <RatingBar
-            android:id="@+id/ratingBar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
+            android:textStyle="bold" />
 
     </androidx.cardview.widget.CardView>
 
     <ImageButton
         android:id="@+id/comMovie"
         android:layout_width="80dp"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:src="@drawable/baseline_comment_24"
-        tools:layout_editor_absoluteX="20dp"
-        tools:layout_editor_absoluteY="510dp" />
-
+        app:layout_constraintBottom_toTopOf="@+id/title_det"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.287"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3"
+        app:layout_constraintVertical_bias="1.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>

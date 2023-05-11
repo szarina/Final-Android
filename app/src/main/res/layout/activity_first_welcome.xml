@@ -24,7 +24,7 @@
         android:layout_marginTop="40dp"
         android:fontFamily="cursive"
         android:text="Welcome to Movie Go"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="38sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
