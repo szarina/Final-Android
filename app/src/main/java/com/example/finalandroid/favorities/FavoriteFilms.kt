@@ -52,7 +52,7 @@ class FavoriteFilms : Fragment() {
                             val intent = Intent(requireContext(), filmDetails::class.java)
                             intent.putExtra("film_id", favoriteList[position].film.id)
                             intent.putExtra("user_id", favoriteList[position].user.id)
-                            intent.putExtra("user_name", favoriteList[position].user.username)
+                            intent.putExtra("username", favoriteList[position].user.username)
                             intent.putExtra("film_description", favoriteList[position].film.description)
                             intent.putExtra("film_title", favoriteList[position].film.title)
                             intent.putExtra("film_photoLink", favoriteList[position].film.photoLink)
