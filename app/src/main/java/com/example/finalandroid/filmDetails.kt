@@ -19,6 +19,7 @@ class filmDetails : AppCompatActivity() {
             startActivity(intent)
         }
 
+
         binding.ratingBar.setOnClickListener {
             val msg = binding.ratingBar.rating.toString()
             Toast.makeText(this@filmDetails,
