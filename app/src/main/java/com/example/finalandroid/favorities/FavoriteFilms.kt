@@ -2,6 +2,7 @@ package com.example.finalandroid.favorities
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -12,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.finalandroid.api.API_instance
 import com.example.finalandroid.api.API_service
 import com.example.finalandroid.data_classes.Favorite
+import com.example.finalandroid.data_classes.Film
 import com.example.finalandroid.databinding.FragmentFavoriteBinding
 import com.example.finalandroid.filmDetails
 import retrofit2.Call
@@ -41,11 +43,8 @@ class FavoriteFilms : Fragment() {
         val api = API_instance.getApiInstance().create(API_service::class.java)
         val call = api.getUserFavorites(id)
 
-        call.enqueue(object : Callback<ArrayList<Favorite>> {
-            override fun onResponse(
-                call: Call<ArrayList<Favorite>>,
-                response: Response<ArrayList<Favorite>>
-            ) {
+        call.enqueue(object : Callback<ArrayList<Favorite>>
+        { override fun onResponse(call: Call<ArrayList<Favorite>>, response: Response<ArrayList<Favorite>>) {
                 if (response.isSuccessful) {
                     val favoriteList = response.body()!!
                     recyclerViewAdapter.setList(favoriteList)
@@ -57,22 +56,27 @@ class FavoriteFilms : Fragment() {
                             intent.putExtra("film_id", favoriteList[position].film.id)
                             intent.putExtra("user_id", favoriteList[position].user.id)
                             intent.putExtra("user_name", favoriteList[position].user.username)
-                            intent.putExtra(
-                                "film_description",
-                                favoriteList[position].film.description
-                            )
+                            intent.putExtra("film_description", favoriteList[position].film.description)
                             intent.putExtra("film_title", favoriteList[position].film.title)
                             intent.putExtra("film_photoLink", favoriteList[position].film.photoLink)
                             startActivity(intent)
                         }
                     })
-                }
-            }
-        }
-    }
 
+                }
+                recyclerViewAdapter.notifyDataSetChanged()
+            }
+
+            override fun onFailure(call: Call<ArrayList<Film>>, t: Throwable) {
+                Toast.makeText(requireContext(), "No internet access try again!", Toast.LENGTH_SHORT).show()
+                Log.d("onFailure", t.cause.toString())
+            }
+
+        })
+    }
                 private fun initRecyclerView() {
                     var recyclerView  = binding.recyclerView
+                    
                     recyclerView.apply {
                         layoutManager = LinearLayoutManager(requireContext())
                         recyclerViewAdapter = FavoritesAdapter()
