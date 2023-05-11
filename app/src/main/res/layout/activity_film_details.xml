@@ -63,15 +63,6 @@
             app:layout_constraintTop_toBottomOf="@+id/imageView3"
             app:layout_constraintVertical_bias="0.0" />
 
-        <RatingBar
-            android:id="@+id/ratingBar"
-            android:layout_width="191dp"
-            android:layout_height="145dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/description_det"
-            app:layout_constraintVertical_bias="0.06999999" />
 
         <TextView
             android:id="@+id/title_det"
@@ -84,6 +75,7 @@
             android:textColor="@color/black"
             android:textSize="20sp"
             android:textStyle="bold" />
+
 
     </androidx.cardview.widget.CardView>
 
@@ -98,4 +90,29 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView3"
         app:layout_constraintVertical_bias="1.0" />
+    <!-- activity_film_details.xml -->
+    <LinearLayout
+        android:layout_width="381dp"
+        android:layout_height="224dp"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="30dp"
+        tools:layout_editor_absoluteY="507dp">
+
+        <Button
+            android:id="@+id/buttonSubmitRating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Submit Rating" />
+
+        <RatingBar
+            android:id="@+id/ratingBar"
+            android:layout_width="433dp"
+            android:layout_height="wrap_content"
+            android:numStars="5"
+            android:rating="0.0"
+            android:stepSize="2" />
+    </LinearLayout>
+
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

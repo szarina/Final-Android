@@ -35,9 +35,14 @@ class FavoriteFilms : Fragment() {
         return binding.root
     }
     private fun createData() {
-        val id = 1
+
+        val username = arguments?.getString("username")
+        val user_id = arguments?.getInt("user_id", -1)
+        val email = arguments?.getString("email")
+
         val api = API_instance.getApiInstance().create(API_service::class.java)
-        val call = api.getUserFavorites(id)
+
+        val call = api.getUserFavorites(user_id!!)
 
         call.enqueue(object : Callback<ArrayList<Favorite>>
         { override fun onResponse(call: Call<ArrayList<Favorite>>, response: Response<ArrayList<Favorite>>) {
@@ -52,10 +57,10 @@ class FavoriteFilms : Fragment() {
                             val intent = Intent(requireContext(), filmDetails::class.java)
                             intent.putExtra("film_id", favoriteList[position].film.id)
                             intent.putExtra("user_id", favoriteList[position].user.id)
-                            intent.putExtra("user_name", favoriteList[position].user.username)
-                            intent.putExtra("film_description", favoriteList[position].film.description)
-                            intent.putExtra("film_title", favoriteList[position].film.title)
-                            intent.putExtra("film_photoLink", favoriteList[position].film.photoLink)
+                            intent.putExtra("username", favoriteList[position].user.username)
+                            intent.putExtra("description", favoriteList[position].film.description)
+                            intent.putExtra("title", favoriteList[position].film.title)
+                            intent.putExtra("photoLink", favoriteList[position].film.photoLink)
                             startActivity(intent)
                         }
                     })
