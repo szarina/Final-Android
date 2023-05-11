@@ -102,7 +102,7 @@
         android:layout_width="150dp"
         android:layout_height="70dp"
         android:layout_marginStart="130dp"
-
+        android:background="@color/scarlet"
         android:layout_marginTop="11dp"
         android:layout_marginEnd="131dp"
         android:layout_marginBottom="174dp"
