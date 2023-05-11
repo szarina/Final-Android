@@ -14,7 +14,6 @@ class filmDetails : AppCompatActivity() {
         binding= ActivityFilmDetailsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
         binding.comMovie.setOnClickListener{
             val intent = Intent(this, Comment::class.java)
             startActivity(intent)
