@@ -27,7 +27,7 @@ class Login_page : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.singInBtn.setOnClickListener {
-            val username = binding.singInEmail.text.toString().trim()
+            val username = binding.username.text.toString().trim()
             val password = binding.singInPassword.text.toString().trim()
 
             // Perform API call for authentication

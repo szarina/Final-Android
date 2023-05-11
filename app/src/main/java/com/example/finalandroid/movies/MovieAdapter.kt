@@ -9,6 +9,7 @@ import com.example.finalandroid.data_classes.Film
 import com.example.finalandroid.databinding.FilmsItemBinding
 class MovieAdapter: RecyclerView.Adapter<MovieAdapter.movieHolder>() {
 
+
     var movieList = ArrayList<Film>()
     private lateinit var mListener: onItemClickListener
 
@@ -58,6 +59,8 @@ class MovieAdapter: RecyclerView.Adapter<MovieAdapter.movieHolder>() {
     override fun onBindViewHolder(holder: movieHolder, position: Int) {
         holder.bindingMovie(movieList[position])
     }
+
+
 
     override fun getItemCount(): Int {
         return movieList.size
