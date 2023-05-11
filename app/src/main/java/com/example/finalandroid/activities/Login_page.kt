@@ -27,7 +27,7 @@ class Login_page : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.singInBtn.setOnClickListener {
-            val username = binding.username.text.toString().trim()
+            val username = binding.nameUp.text.toString().trim()
             val password = binding.singInPassword.text.toString().trim()
 
             // Perform API call for authentication
@@ -56,7 +56,7 @@ class Login_page : AppCompatActivity() {
                         val intent = Intent(this@Login_page, MainActivity::class.java)
                         intent.putExtra("username", matchingUser.username)
                         intent.putExtra("email", matchingUser.email)
-                        intent.putExtra("id", matchingUser.id)
+                        intent.putExtra("user_id", matchingUser.id)
                         startActivity(intent)
                         finish()
                     } else {

@@ -18,14 +18,14 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_margin="5dp">
 
             <TextView
                 android:id="@+id/username"
                 android:layout_width="330dp"
                 android:layout_height="15dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="4dp"
                 android:maxLines="4"
                 android:text="UserName"
                 android:textColor="@color/black"
@@ -33,7 +33,7 @@
                 android:textStyle="bold"
 
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.615"
+                app:layout_constraintHorizontal_bias="0.285"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -41,7 +41,7 @@
                 android:id="@+id/comments"
                 android:layout_width="330dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="36dp"
                 android:maxLines="4"
                 android:text="Comments"
                 android:textColor="@color/black"
@@ -49,6 +49,7 @@
                 android:textStyle="bold"
 
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.285"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 

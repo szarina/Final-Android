@@ -54,9 +54,6 @@ class Home : Fragment() {
     private fun createData() {
         val username = arguments?.getString("username")
         val user_id = arguments?.getInt("user_id", -1)
-
-        val id = arguments?.getInt("user_id", -1)
-
         val email = arguments?.getString("email")
 
         val api = API_instance.getApiInstance().create(API_service::class.java)
@@ -74,7 +71,7 @@ class Home : Fragment() {
                             intent.putExtra("title", filmsList[position].title)
                             intent.putExtra("film_id", filmsList[position].id)
                             intent.putExtra("description",filmsList[position].description)
-                            intent.putExtra("photoLink", filmsList[position].photoLink)
+                            intent.putExtra("photoLink", filmsList[position].photo_link)
                             intent.putExtra("user_id", user_id)
                             intent.putExtra("username", username)
 

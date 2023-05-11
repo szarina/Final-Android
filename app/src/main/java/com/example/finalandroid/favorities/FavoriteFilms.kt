@@ -8,12 +8,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.finalandroid.api.API_instance
 import com.example.finalandroid.api.API_service
 import com.example.finalandroid.data_classes.Favorite
-import com.example.finalandroid.data_classes.Film
 import com.example.finalandroid.databinding.FragmentFavoriteBinding
 import com.example.finalandroid.filmDetails
 import retrofit2.Call
@@ -35,9 +33,14 @@ class FavoriteFilms : Fragment() {
         return binding.root
     }
     private fun createData() {
-        val id = 1
+
+        val username = arguments?.getString("username")
+        val user_id = arguments?.getInt("user_id", -1)
+        val email = arguments?.getString("email")
+
         val api = API_instance.getApiInstance().create(API_service::class.java)
-        val call = api.getUserFavorites(id)
+
+        val call = api.getUserFavorites(user_id!!)
 
         call.enqueue(object : Callback<ArrayList<Favorite>>
         { override fun onResponse(call: Call<ArrayList<Favorite>>, response: Response<ArrayList<Favorite>>) {
@@ -53,9 +56,9 @@ class FavoriteFilms : Fragment() {
                             intent.putExtra("film_id", favoriteList[position].film.id)
                             intent.putExtra("user_id", favoriteList[position].user.id)
                             intent.putExtra("username", favoriteList[position].user.username)
-                            intent.putExtra("film_description", favoriteList[position].film.description)
-                            intent.putExtra("film_title", favoriteList[position].film.title)
-                            intent.putExtra("film_photoLink", favoriteList[position].film.photoLink)
+                            intent.putExtra("description", favoriteList[position].film.description)
+                            intent.putExtra("title", favoriteList[position].film.title)
+                            intent.putExtra("photoLink", favoriteList[position].film.photo_link)
                             startActivity(intent)
                         }
                     })

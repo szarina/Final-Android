@@ -1,7 +1,5 @@
 package com.example.finalandroid.favorities
 
-import android.app.AlertDialog
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -39,7 +37,7 @@ class FavoritesAdapter : RecyclerView.Adapter<FavoritesAdapter.sHolder>(){
         fun bindingMovie(movie: Film){
             name.text = movie.title
 //            description.text = movie.description
-            val url = movie.photoLink
+            val url = movie.photo_link
             Glide.with(img)
                 .load(url)
                 .placeholder(R.drawable.image)

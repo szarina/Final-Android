@@ -40,7 +40,7 @@ class MovieAdapter: RecyclerView.Adapter<MovieAdapter.movieHolder>() {
         fun bindingMovie(movie: Film){
             name.text = movie.title
             description.text = movie.description
-            val url = movie.photoLink
+            val url = movie.photo_link
             Glide.with(img)
                 .load(url)
                 .placeholder(R.drawable.image)
