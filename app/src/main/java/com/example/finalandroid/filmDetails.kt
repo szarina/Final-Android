@@ -69,7 +69,7 @@ class filmDetails : AppCompatActivity() {
     ) {
         binding.titleDet.text = title
         binding.descriptionDet.text = description
-
+        binding.ratingTxt.text = getRatingOfFilm(film_id).toString()
         val img = binding.imageView3
         val url = photoLink
 
@@ -144,7 +144,7 @@ class filmDetails : AppCompatActivity() {
                     val ratingList = response.body()
                     // Handle the API response as needed
                     result = ratingList?.get(0)?.rating
-                } 
+                }
             }
 
 
