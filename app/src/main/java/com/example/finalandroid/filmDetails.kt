@@ -56,13 +56,13 @@ class filmDetails : AppCompatActivity() {
             exception.printStackTrace()
         }
 
-        binding.ratingBar.setOnClickListener {
-            val msg = binding.ratingBar.rating
-            val film_id=1
-//            Toast.makeText(this@filmDetails,
-//                "Rating is: "+msg, Toast.LENGTH_SHORT).show()
-            submitRating(film_id, msg)
-        }
+//        binding.ratingBar.setOnClickListener {
+//            val msg = binding.ratingBar.rating
+//            val film_id=1
+////            Toast.makeText(this@filmDetails,
+////                "Rating is: "+msg, Toast.LENGTH_SHORT).show()
+//            submitRating(film_id, msg)
+//        }
 
         binding.saveImgBtn.setOnClickListener {
 //            addFilmToFavorites(user_id,film_id)
