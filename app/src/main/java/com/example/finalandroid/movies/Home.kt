@@ -44,11 +44,18 @@ class Home : Fragment() {
 //        supportActionBar?.setHomeButtonEnabled(true)
         initRecyclerView()
         createData()
+
+
+
         return binding.root
     }
 
 
     private fun createData() {
+        val username = arguments?.getString("username")
+        val id = arguments?.getInt("id", -1)
+        val email = arguments?.getString("email")
+
         val api = API_instance.getApiInstance().create(API_service::class.java)
         val call = api.getFilms()
         call.enqueue(object : Callback<ArrayList<Film>> {
@@ -62,9 +69,11 @@ class Home : Fragment() {
 //                            Toast.makeText(this@Home, "You cliсked $position", Toast.LENGTH_SHORT).show()
                             val intent = Intent(requireContext(), filmDetails::class.java)
                             intent.putExtra("title", filmsList[position].title)
-                            intent.putExtra("id", filmsList[position].id)
+                            intent.putExtra("film_id", filmsList[position].id)
                             intent.putExtra("description",filmsList[position].description)
                             intent.putExtra("photoLink", filmsList[position].photoLink)
+                            intent.putExtra("user_id", id)
+                            intent.putExtra("username", username)
 
 
                             startActivity(intent)

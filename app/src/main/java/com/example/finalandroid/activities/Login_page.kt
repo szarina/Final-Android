@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import androidx.activity.trackPipAnimationHintView
 import com.example.finalandroid.R
 import com.example.finalandroid.api.API_instance
 import com.example.finalandroid.api.API_service
@@ -52,6 +53,9 @@ class Login_page : AppCompatActivity() {
                     if (matchingUser != null) {
                         // username and password match a user in the list
                         val intent = Intent(this@Login_page, MainActivity::class.java)
+                        intent.putExtra("username", matchingUser.username)
+                        intent.putExtra("email", matchingUser.email)
+                        intent.putExtra("id", matchingUser.id)
                         startActivity(intent)
                         finish()
                     } else {

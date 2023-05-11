@@ -25,16 +25,18 @@ class FavoriteFilms : Fragment() {
     ): View? {
         binding= FragmentFavoriteBinding.inflate(inflater)
         builder = AlertDialog.Builder(this.requireContext())
-        supportActionBar?.title = "Saved Fruits"
+//        supportActionBar?.title = "Saved Fruits"
 
         initRecyclerView()
     }
     private fun initRecyclerView() {
-        var recyclerView  = binding.recyclerSave
+        var recyclerView  = binding.recyclerView
 
         recyclerView.apply {
+            layoutManager = LinearLayoutManager(this@MainActivity)
+            recyclerViewAdapter = NewsAdapter()
+            adapter = recyclerViewAdapter
         }
-
         }
 
     override fun onBackPressed() {
