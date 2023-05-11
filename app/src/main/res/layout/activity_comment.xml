@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Comment">
+    tools:context=".comment.Comment">
 
 
     <EditText
@@ -38,7 +38,7 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerFragment"
+        android:id="@+id/recycler_comment"
         android:layout_width="411dp"
         android:layout_height="550dp"
         android:layout_marginBottom="16dp"
