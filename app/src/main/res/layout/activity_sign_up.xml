@@ -1,49 +1,82 @@
+
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/grey"
-    tools:context=".activities.Sign_up">
+    android:background="@color/whiteTextColor"
+    app:circularflow_defaultRadius="20dp"
+    app:circularflow_radiusInDP="20dp"
+    tools:context=".activities.Login_page">
 
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="309dp"
-        android:layout_height="211dp"
-        android:layout_marginTop="24dp"
+    <Button
+        android:id="@+id/showHide2"
+        android:layout_width="51dp"
+        android:layout_height="33dp"
+        android:layout_marginEnd="28dp"
+        android:background="#ff0000"
+        android:backgroundTint="#ff0000"
+        android:text="Show"
+        android:textColor="@color/white"
+        android:textSize="11sp"
+        app:layout_constraintBottom_toBottomOf="@+id/sing_in_password"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/dee" />
+        app:layout_constraintTop_toTopOf="@+id/sing_in_password" />
 
     <EditText
-        android:id="@+id/name_up"
+        android:id="@+id/name_up3"
         android:layout_width="0dp"
         android:layout_height="38dp"
-        android:layout_marginTop="68dp"
-        android:background="@color/grey"
-        android:drawableLeft="@drawable/person_24"
+        android:background="@color/scarlet"
+        android:drawableLeft="@drawable/email_24"
         android:drawablePadding="10dp"
         android:ems="10"
         android:fontFamily="serif"
-        android:hint="User name"
+        android:hint="Username"
         android:inputType="textPersonName"
         android:paddingLeft="10dp"
         android:textColor="@color/white"
         android:textColorHint="@color/white"
         android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/textView3"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/textView3"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+        app:circularflow_defaultRadius="20dp"
+        app:circularflow_radiusInDP="20dp"
+        tools:layout_editor_absoluteX="66dp"
+        tools:layout_editor_absoluteY="232dp" />
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="462dp"
+        android:layout_height="305dp"
+        app:srcCompat="@drawable/login_shape_bk"
+        tools:layout_editor_absoluteX="-35dp"
+        tools:layout_editor_absoluteY="-128dp" />
+
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="388dp"
+        android:layout_height="499dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.304"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/login_shape2_bk"
+        tools:layout_editor_absoluteY="99dp" />
+
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="64dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/logo2"
+        tools:layout_editor_absoluteY="16dp" />
 
     <EditText
-        android:id="@+id/emial_up"
+        android:id="@+id/name_up4"
         android:layout_width="0dp"
         android:layout_height="38dp"
-        android:background="@color/grey_lig"
+        android:background="@color/scarlet"
         android:drawableLeft="@drawable/email_24"
         android:drawablePadding="10dp"
         android:ems="10"
@@ -55,104 +88,107 @@
         android:textColorHint="@color/white"
         android:textSize="24sp"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="99dp"
-        tools:layout_editor_absoluteY="406dp" />
+        app:circularflow_defaultRadius="20dp"
+        app:circularflow_radiusInDP="20dp"
+        tools:layout_editor_absoluteX="66dp"
+        tools:layout_editor_absoluteY="292dp" />
 
     <EditText
-        android:id="@+id/passw_up"
-        android:layout_width="0dp"
-        android:layout_height="38dp"
-        android:layout_marginTop="8dp"
-        android:background="@color/grey_lig"
-        android:drawableLeft="@drawable/security_24"
+        android:id="@+id/name_up2"
+        android:layout_width="277dp"
+        android:layout_height="29dp"
+        android:background="@color/scarlet"
+        android:drawableLeft="@drawable/email_24"
         android:drawablePadding="10dp"
         android:ems="10"
         android:fontFamily="serif"
         android:hint="Password"
-        android:inputType="textPassword"
+        android:inputType="textPersonName"
         android:paddingLeft="10dp"
         android:textColor="@color/white"
         android:textColorHint="@color/white"
         android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/emial_up"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/emial_up"
-        app:layout_constraintTop_toBottomOf="@+id/emial_up" />
-
-    <Button
-        android:id="@+id/sing_up_bnt"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:fontFamily="cursive"
-        android:text="Sing Up"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/conf_pass_up"
-        app:layout_constraintStart_toStartOf="@+id/conf_pass_up"
-        app:layout_constraintTop_toBottomOf="@+id/conf_pass_up" />
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:fontFamily="cursive"
-        android:text="Please Sing Up"
-        android:textColor="@color/black"
-        android:textSize="38sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+        app:circularflow_defaultRadius="20dp"
+        app:circularflow_radiusInDP="20dp"
+        app:layout_constraintEnd_toEndOf="@+id/name_up3"
+        app:layout_constraintStart_toStartOf="@+id/name_up3"
+        tools:layout_editor_absoluteY="346dp" />
 
     <EditText
-        android:id="@+id/conf_pass_up"
+        android:id="@+id/name_up"
         android:layout_width="0dp"
         android:layout_height="38dp"
-        android:layout_marginTop="8dp"
-        android:background="@color/grey_lig"
+        android:background="@color/scarlet"
         android:drawableLeft="@drawable/security_24"
-        android:drawablePadding="5dp"
+        android:drawablePadding="10dp"
         android:ems="10"
         android:fontFamily="serif"
-        android:hint="Confirm Password"
-        android:inputType="textPassword"
+        android:hint="Username"
+        android:inputType="textPersonName"
         android:paddingLeft="10dp"
         android:textColor="@color/white"
         android:textColorHint="@color/white"
-        android:textSize="22sp"
+        android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/passw_up"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/passw_up"
-        app:layout_constraintTop_toBottomOf="@+id/passw_up" />
+        app:circularflow_defaultRadius="20dp"
+        app:circularflow_radiusInDP="20dp"
+        tools:layout_editor_absoluteX="66dp"
+        tools:layout_editor_absoluteY="232dp" />
+
+    <EditText
+        android:id="@+id/sing_in_password"
+        android:layout_width="278dp"
+        android:layout_height="38dp"
+        android:background="@color/scarlet"
+        android:drawableLeft="@drawable/security_24"
+        android:drawablePadding="10dp"
+        android:ems="10"
+        android:fontFamily="serif"
+        android:hint="Confirm paaaword"
+        android:inputType="textPassword"
+        android:paddingLeft="11dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:circularflow_defaultRadius="20dp"
+        app:circularflow_radiusInDP="20dp"
+        app:layout_constraintEnd_toEndOf="@+id/name_up3"
+        app:layout_constraintStart_toStartOf="@+id/name_up3"
+        tools:layout_editor_absoluteY="400dp" />
 
     <Button
-        android:id="@+id/button3"
-        android:layout_width="70dp"
-        android:layout_height="45dp"
-        android:layout_marginEnd="24dp"
-        android:backgroundTint="@color/grey"
-        android:text="Show"
-        android:textColor="@color/black"
-        android:textSize="11sp"
-        app:layout_constraintBottom_toBottomOf="@+id/passw_up"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/passw_up" />
+        android:id="@+id/sing_in_btn"
+        android:layout_width="278dp"
+        android:layout_height="wrap_content"
+        android:background="@color/grey_lig"
+        android:text="Sing In"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/name_up3"
+        app:layout_constraintStart_toStartOf="@+id/name_up3"
+        tools:layout_editor_absoluteY="459dp" />
 
     <Button
-        android:id="@+id/button4"
-        android:layout_width="70dp"
-        android:layout_height="45dp"
-        android:layout_marginEnd="24dp"
-        android:backgroundTint="@color/grey"
+        android:id="@+id/ShowHide"
+        android:layout_width="51dp"
+        android:layout_height="33dp"
+        android:layout_marginEnd="28dp"
+        android:background="@color/grey_lig
+<!--        android:backgroundTint="#ff0000"-->
         android:text="Show"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="11sp"
-        app:layout_constraintBottom_toBottomOf="@+id/conf_pass_up"
+        app:layout_constraintBottom_toBottomOf="@+id/sing_in_password"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/conf_pass_up" />
+        app:layout_constraintTop_toTopOf="@+id/sing_in_password" />
 
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_login_bk"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="564dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
