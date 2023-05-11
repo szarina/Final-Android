@@ -30,13 +30,13 @@ interface API_service {
     @GET("users")
     fun getUsers(): Call <ArrayList <User> >
 
+    @FormUrlEncoded
     @POST("users")
     fun addUser(@Field("username") username: String,
                 @Field("email") email: String ,
-                @Field("password") password:String) :Call < User >
+                @Field("password") password:String) :Call < ArrayList<User> >
 
-    @POST("users/")
-    fun addUser2(@Body requestBody: RequestBody): Response<ResponseBody>
+
 
     @GET("users/{user_id}/favorites")
     fun getUserFavorites(@Path("user_id") user_id: Int ): Call< ArrayList <Favorite> >
@@ -46,7 +46,7 @@ interface API_service {
     @POST("users/{user_id_path}/favorites")
     fun addUserFavorites(@Path("user_id_path") user_id_path: Int,
                          @Field("user") user_id: Int,
-                         @Field("film") film_id: Int ): Call< Favorite>
+                         @Field("film") film_id: Int ): Call< ArrayList<Favorite>>
 
 
     @GET("fims/{film_id}/ratings")
@@ -56,7 +56,7 @@ interface API_service {
     @POST("ratings")
     fun addRating( @Field("user") user_id: Int,
                    @Field("film") film_id: Int,
-                   @Field("rating") rating: Float) : Call<Rating>
+                   @Field("rating") rating: Float) : Call<ArrayList<Rating>>
 
 
 

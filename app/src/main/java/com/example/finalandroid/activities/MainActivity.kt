@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity() {
         val bundle = intent.extras as Bundle
         val username = bundle.getString("username")
         val email = bundle.getString("email")
-        val user_id = bundle.getInt("id")
+        val user_id = bundle.getInt("user_id")
 
 
 
@@ -41,7 +41,7 @@ class MainActivity : AppCompatActivity() {
 
         val args = Bundle()
         args.putString("username", username)
-        args.putInt("id", id)
+        args.putInt("user_id", id)
         args.putString("email", email)
         fragment.arguments = args
 
