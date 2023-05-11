@@ -25,27 +25,24 @@ class FavoriteFilms : Fragment() {
 
     lateinit var binding:FragmentFavoriteBinding
     lateinit var  recyclerViewAdapter: FavoritesAdapter
-    lateinit var builder: AlertDialog.Builder
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+        savedInstanceState: Bundle?): View? {
         binding= FragmentFavoriteBinding.inflate(inflater)
-        builder = AlertDialog.Builder(this.requireContext())
         createData()
         initRecyclerView()
         return binding.root
     }
     private fun createData() {
         val id = 1
-
         val api = API_instance.getApiInstance().create(API_service::class.java)
         val call = api.getUserFavorites(id)
 
         call.enqueue(object : Callback<ArrayList<Favorite>>
         { override fun onResponse(call: Call<ArrayList<Favorite>>, response: Response<ArrayList<Favorite>>) {
                 if (response.isSuccessful) {
+
                     val favoriteList = response.body()!!
                     recyclerViewAdapter.setList(favoriteList)
                     recyclerViewAdapter.setOnItemClickListener(object :
@@ -67,7 +64,7 @@ class FavoriteFilms : Fragment() {
                 recyclerViewAdapter.notifyDataSetChanged()
             }
 
-            override fun onFailure(call: Call<ArrayList<Film>>, t: Throwable) {
+            override fun onFailure(call: Call<ArrayList<Favorite>>, t: Throwable) {
                 Toast.makeText(requireContext(), "No internet access try again!", Toast.LENGTH_SHORT).show()
                 Log.d("onFailure", t.cause.toString())
             }
@@ -76,33 +73,13 @@ class FavoriteFilms : Fragment() {
     }
                 private fun initRecyclerView() {
                     var recyclerView  = binding.recyclerView
-                    
+
                     recyclerView.apply {
                         layoutManager = LinearLayoutManager(requireContext())
                         recyclerViewAdapter = FavoritesAdapter()
                         adapter = recyclerViewAdapter
                     }
                 }
-//
-//    override fun onBackPressed() {
-//        if (backPressedTime + 10 > System.currentTimeMillis()) {
-//            super.onBackPressed()
-//        } else {
-//            builder.setTitle("Exit Saves Fruits")
-//                .setMessage("Get out from favourite fruits ?")
-//                .setPositiveButton("Yes"){id, it ->
-//                    val intent = Intent(this.requireContext(), FavoriteFilms::class.java)
-//                    startActivity(intent)
-//                }
-//                .setNegativeButton("No"){id, it ->
-//                    id.cancel()
-//                }
-//                .show()
-//        }
-//        backPressedTime = System.currentTimeMillis()
-//    }
-
-
 
     companion object {
         @JvmStatic
