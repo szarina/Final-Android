@@ -24,8 +24,7 @@ class FavoriteFilms : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding= FragmentFavoriteBinding.inflate(inflater)
-        builder = AlertDialog.Builder(this)
-        setContentView(binding.root)
+        builder = AlertDialog.Builder(this.requireContext())
         supportActionBar?.title = "Saved Fruits"
 
         initRecyclerView()
@@ -45,7 +44,7 @@ class FavoriteFilms : Fragment() {
             builder.setTitle("Exit Saves Fruits")
                 .setMessage("Get out from favourite fruits ?")
                 .setPositiveButton("Yes"){id, it ->
-                    val intent = Intent(this, FavoriteFilms::class.java)
+                    val intent = Intent(this.requireContext(), FavoriteFilms::class.java)
                     startActivity(intent)
                 }
                 .setNegativeButton("No"){id, it ->
