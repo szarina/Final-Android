@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import com.example.finalandroid.favorities.FavoriteFilms
-import com.example.finalandroid.Home
+import com.example.finalandroid.movies.Home
 import com.example.finalandroid.Profile
 import com.example.finalandroid.R
 import com.example.finalandroid.databinding.ActivityMainBinding
