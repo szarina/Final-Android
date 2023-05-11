@@ -4,48 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/whiteTextColor"
+    android:background="@drawable/login_back"
     app:circularflow_defaultRadius="20dp"
     app:circularflow_radiusInDP="20dp"
     tools:context=".activities.Login_page">
 
 
-    <ImageView
-        android:id="@+id/imageView7"
-        android:layout_width="424dp"
-        android:layout_height="263dp"
-        android:layout_marginBottom="64dp"
-        app:layout_constraintBottom_toTopOf="@+id/username"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/login_shape_bk" />
-
-    <ImageView
-        android:id="@+id/imageView8"
-        android:layout_width="388dp"
-        android:layout_height="499dp"
-        android:layout_marginTop="52dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.478"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView9"
-        app:srcCompat="@drawable/login_shape2_bk" />
-
-    <ImageView
-        android:id="@+id/imageView9"
-        android:layout_width="327dp"
-        android:layout_height="191dp"
-        android:layout_marginTop="72dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo2" />
-
     <EditText
-        android:id="@+id/username"
-        android:layout_width="278dp"
-        android:layout_height="41dp"
+        android:id="@+id/name_up"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="260dp"
         android:background="@color/scarlet"
         android:drawableLeft="@drawable/email_24"
         android:drawablePadding="10dp"
@@ -60,15 +29,15 @@
         android:textStyle="bold"
         app:circularflow_defaultRadius="20dp"
         app:circularflow_radiusInDP="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/sing_in_password"
-        app:layout_constraintEnd_toStartOf="@+id/ShowHide"
-        app:layout_constraintStart_toStartOf="@+id/sing_in_password"
-        app:layout_constraintTop_toBottomOf="@+id/imageView9" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/sing_in_password"
         android:layout_width="278dp"
         android:layout_height="38dp"
+        android:layout_marginTop="15dp"
         android:background="@color/scarlet"
         android:drawableLeft="@drawable/security_24"
         android:drawablePadding="10dp"
@@ -83,32 +52,16 @@
         android:textStyle="bold"
         app:circularflow_defaultRadius="20dp"
         app:circularflow_radiusInDP="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="320dp" />
-
-    <Button
-        android:id="@+id/sing_in_btn"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:background="@color/barnRed"
-        android:text="Sing In"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/imageView4"
-        app:layout_constraintEnd_toEndOf="@+id/sing_in_password"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/sing_in_password"
-        app:layout_constraintTop_toBottomOf="@+id/sing_in_password"
-        app:layout_constraintVertical_bias="0.083" />
+        app:layout_constraintEnd_toEndOf="@+id/name_up"
+        app:layout_constraintStart_toStartOf="@+id/name_up"
+        app:layout_constraintTop_toBottomOf="@+id/name_up" />
 
     <Button
         android:id="@+id/ShowHide"
         android:layout_width="51dp"
         android:layout_height="33dp"
-        android:layout_marginEnd="28dp"
 
+        android:layout_marginEnd="16dp"
         android:text="Show"
         android:textColor="@color/white"
         android:textSize="11sp"
@@ -117,26 +70,29 @@
         app:layout_constraintStart_toEndOf="@+id/sing_in_password"
         app:layout_constraintTop_toTopOf="@+id/sing_in_password" />
 
+    <Button
+        android:id="@+id/sing_in_btn"
+        android:layout_width="166dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="40dp"
+        android:background="@color/barnRed"
+        android:text="Sing In"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sing_in_password" />
+
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
         android:text="Don't have an account? Sign up"
         android:textColor="@color/chili"
         android:textColorLink="#F44336"
-        app:layout_constraintBottom_toTopOf="@+id/imageView4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/sing_in_btn" />
 
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="410dp"
-        android:layout_height="169dp"
-        android:layout_marginBottom="4dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/ic_login_bk" />
 </androidx.constraintlayout.widget.ConstraintLayout>
