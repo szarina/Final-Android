@@ -10,6 +10,9 @@ import com.example.finalandroid.R
 import com.example.finalandroid.api.API_instance
 import com.example.finalandroid.api.API_service
 import com.example.finalandroid.data_classes.User
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import okhttp3.Call
 import okhttp3.Callback
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
@@ -61,18 +64,36 @@ class Sign_up : AppCompatActivity() {
 
         // Create RequestBody ( We're not using any converter, like GsonConverter, MoshiConverter e.t.c, that's why we use RequestBody )
         val requestBody = jsonObject.toString().toRequestBody("application/json".toMediaTypeOrNull())
-        val call = apiService.addUser2(requestBody)
-        if(call.isSuccessful){
-            navigateToLogin()
-        }
-        else{
-            Toast.makeText(this@Sign_up, "Network error occurred", Toast.LENGTH_SHORT).show()
-        }
+//        val call = apiService.addUser2(requestBody)
+//        if(call.isSuccessful){
+//            navigateToLogin()
+//        }
+//        else{
+//            Toast.makeText(this@Sign_up, "Network error occurred", Toast.LENGTH_SHORT).show()
+//        }
+
+        val  call = apiService.addUser(username,email, password)
+        call.enqueue(object : retrofit2.Callback<ArrayList<User>> {
+            override fun onResponse(call: retrofit2.Call<ArrayList<User>>, response: retrofit2.Response<ArrayList<User>>) {
+
+                if (response.isSuccessful == true) {
+                    // Authentication successful, navigate to welcome page
+                    val userList = response.body()
+                    navigateToLogin()
 
 
+                }
+            }
 
-
+            override fun onFailure(call: retrofit2.Call<ArrayList<User>>, t: Throwable) {
+                // API call failed, show error message
+                Toast.makeText(this@Sign_up, "API call failed: ${t.message}", Toast.LENGTH_SHORT).show()
+            }
+        })
     }
+
+
+
 
     private fun navigateToLogin() {
         val intent = Intent(this, Login_page::class.java)
@@ -80,3 +101,6 @@ class Sign_up : AppCompatActivity() {
         finish()
     }
 }
+
+
+
