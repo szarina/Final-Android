@@ -42,7 +42,7 @@ interface API_service {
     fun getUserFavorites(@Path("user_id") user_id: Int ): Call< ArrayList <Favorite> >
 
 
-
+    @FormUrlEncoded
     @POST("users/{user_id_path}/favorites")
     fun addUserFavorites(@Path("user_id_path") user_id_path: Int,
                          @Field("user") user_id: Int,
