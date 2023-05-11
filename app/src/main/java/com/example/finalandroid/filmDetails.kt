@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import com.example.finalandroid.comment.Comment
 import com.example.finalandroid.databinding.ActivityFilmDetailsBinding
 
 class filmDetails : AppCompatActivity() {

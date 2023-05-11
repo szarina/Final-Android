@@ -1,5 +1,6 @@
 package com.example.finalandroid.api
 
+import com.example.finalandroid.comment.CommentEntity
 import com.example.finalandroid.data_classes.*
 import okhttp3.RequestBody
 import okhttp3.ResponseBody
@@ -16,14 +17,14 @@ interface API_service {
 
 
     @GET("films/{film_id}/comments")
-    fun  getFilmComments(@Path("film_id") film_id: Int):Call <ArrayList<Comment> >
+    fun  getFilmComments(@Path("film_id") film_id: Int):Call <ArrayList<CommentEntity> >
 
 
     @POST("films/{film_id_path}/comments")
     fun  addComment(@Path("film_id_path") film_id_path: Int,
                     @Field("user") user_id: Int,
                     @Field("film") film_id: Int ,
-                    @Field("content") content:String):Call <Comment>
+                    @Field("content") content:String):Call <CommentEntity>
 
 
     @GET("users")
@@ -34,7 +35,7 @@ interface API_service {
                 @Field("email") email: String ,
                 @Field("password") password:String) :Call < User >
 
-    @POST("users")
+    @POST("users/")
     fun addUser2(@Body requestBody: RequestBody): Response<ResponseBody>
 
     @GET("users/{user_id}/favorites")
