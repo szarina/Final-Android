@@ -69,19 +69,11 @@
             android:layout_gravity="center_horizontal|center_vertical"
             android:layout_marginTop="40dp"
             android:background="@color/barnRed"
-            android:text="Sing In"
+            android:text="Sign In"
             android:textSize="20sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            app:rippleColor="@color/barnRed" />
 
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal|center_vertical"
-            android:layout_marginTop="15dp"
-            android:text="Don't have an account? Sign up"
-            android:textColor="@color/chili"
-            android:textColorLink="#F44336" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
