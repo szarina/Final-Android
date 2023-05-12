@@ -3,15 +3,17 @@ package com.example.finalandroid
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.PersistableBundle
 import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.RatingBar
 import android.widget.Toast
-
-
 import com.bumptech.glide.Glide
 
+import androidx.core.content.ContentProviderCompat.requireContext
+import com.example.finalandroid.api.API_instance
+import com.example.finalandroid.api.API_service
 
 import androidx.core.content.ContentProviderCompat.requireContext
 import com.example.finalandroid.api.API_instance
@@ -27,11 +29,10 @@ import retrofit2.Response
 
 class filmDetails : AppCompatActivity() {
     lateinit var binding: ActivityFilmDetailsBinding
-
     lateinit var bundle: Bundle
 
     override fun onCreate(savedInstanceState: Bundle?) {
-
+      
         super.onCreate(savedInstanceState)
 
         binding = ActivityFilmDetailsBinding.inflate(layoutInflater)
@@ -56,6 +57,7 @@ class filmDetails : AppCompatActivity() {
             exception.printStackTrace()
         }
 
+<<<<<<< HEAD
 //        binding.ratingBar.setOnClickListener {
 //            val msg = binding.ratingBar.rating
 //            val film_id=1
@@ -63,6 +65,37 @@ class filmDetails : AppCompatActivity() {
 ////                "Rating is: "+msg, Toast.LENGTH_SHORT).show()
 //            submitRating(film_id, msg)
 //        }
+=======
+//        binding.saveImgBtn.setOnClickListener{
+//
+//        }
+//    }
+////
+//    private fun createPage(){
+//        binding.titleDet.text=bundle!!.getString("title")
+//        binding.descriptionDet.text=bundle!!.getString("description")
+//
+//        val img = binding.imageView3
+//        val url=bundle!!.getString("photoLink")
+//
+//        Glide.with(img)
+//            .load(url)
+//            .placeholder(R.drawable.image)
+//            .error(R.drawable.image)
+//            .fallback(R.drawable.image)
+//            .into(img)
+//
+//    }
+    private fun submitRating(filmId: String, ratingValue: Float) {
+
+        binding.ratingBar.setOnClickListener {
+            val msg = binding.ratingBar.rating
+            val film_id=1
+//            Toast.makeText(this@filmDetails,
+//                "Rating is: "+msg, Toast.LENGTH_SHORT).show()
+            submitRating(film_id, msg)
+        }
+>>>>>>> e628a8b190e4c91a9b7d029d704251ae9703ca34
 
         binding.saveImgBtn.setOnClickListener {
 //            addFilmToFavorites(user_id,film_id)
