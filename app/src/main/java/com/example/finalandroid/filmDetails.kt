@@ -15,9 +15,6 @@ import androidx.core.content.ContentProviderCompat.requireContext
 import com.example.finalandroid.api.API_instance
 import com.example.finalandroid.api.API_service
 
-import androidx.core.content.ContentProviderCompat.requireContext
-import com.example.finalandroid.api.API_instance
-import com.example.finalandroid.api.API_service
 
 import com.example.finalandroid.comment.Comment
 import com.example.finalandroid.data_classes.Favorite
@@ -57,7 +54,6 @@ class filmDetails : AppCompatActivity() {
             exception.printStackTrace()
         }
 
-<<<<<<< HEAD
 //        binding.ratingBar.setOnClickListener {
 //            val msg = binding.ratingBar.rating
 //            val film_id=1
@@ -65,7 +61,7 @@ class filmDetails : AppCompatActivity() {
 ////                "Rating is: "+msg, Toast.LENGTH_SHORT).show()
 //            submitRating(film_id, msg)
 //        }
-=======
+
 //        binding.saveImgBtn.setOnClickListener{
 //
 //        }
@@ -86,16 +82,15 @@ class filmDetails : AppCompatActivity() {
 //            .into(img)
 //
 //    }
-    private fun submitRating(filmId: String, ratingValue: Float) {
+//    private fun submitRating(filmId: String, ratingValue: Float) {
 
-        binding.ratingBar.setOnClickListener {
-            val msg = binding.ratingBar.rating
-            val film_id=1
-//            Toast.makeText(this@filmDetails,
-//                "Rating is: "+msg, Toast.LENGTH_SHORT).show()
-            submitRating(film_id, msg)
-        }
->>>>>>> e628a8b190e4c91a9b7d029d704251ae9703ca34
+//        binding.ratingBar.setOnClickListener {
+//            val msg = binding.ratingBar.rating
+//            val film_id=1
+////            Toast.makeText(this@filmDetails,
+////                "Rating is: "+msg, Toast.LENGTH_SHORT).show()
+//            submitRating(film_id, msg)
+//        }
 
         binding.saveImgBtn.setOnClickListener {
 //            addFilmToFavorites(user_id,film_id)
