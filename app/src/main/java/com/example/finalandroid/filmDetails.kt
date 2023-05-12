@@ -34,11 +34,7 @@ class filmDetails : AppCompatActivity() {
 
         binding = ActivityFilmDetailsBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        binding.comMovie.setOnClickListener {
-            val intent = Intent(this, Comment::class.java)
-            startActivity(intent)
-        }
-        try{
+
         bundle = intent.extras!!
         val user_id = bundle.getInt("user_id")
         val film_id = bundle.getInt("film_id")
@@ -49,10 +45,16 @@ class filmDetails : AppCompatActivity() {
         Log.d("data","user_id - ${user_id} ,film_id - ${film_id}" +
                 ",description- ${description},title -${title}" +
                 "+photoLink - ${photoLink}")
-        createPage(user_id, film_id, description!!, title!!, photoLink!!)}
-        catch (exception :java.lang.Exception){
-            exception.printStackTrace()
+
+        createPage(user_id, film_id, description!!, title!!, photoLink!!)
+        binding.comMovie.setOnClickListener {
+            val intent = Intent(this, Comment::class.java)
+            intent.putExtra("username", username)
+            intent.putExtra("user_id", user_id)
+            intent.putExtra("film_id", film_id)
+            startActivity(intent)
         }
+
 
 //        binding.ratingBar.setOnClickListener {
 //            val msg = binding.ratingBar.rating
@@ -61,8 +63,7 @@ class filmDetails : AppCompatActivity() {
 ////                "Rating is: "+msg, Toast.LENGTH_SHORT).show()
 //            submitRating(film_id, msg)
 //        }
-<<<<<<< HEAD
-=======
+
 
 //        binding.saveImgBtn.setOnClickListener{
 //
@@ -93,7 +94,7 @@ class filmDetails : AppCompatActivity() {
 ////                "Rating is: "+msg, Toast.LENGTH_SHORT).show()
 //            submitRating(film_id, msg)
 //        }
->>>>>>> 857c6b3d44def24fc930d11c4ba7b4bd0f7f56f8
+
 
         binding.saveImgBtn.setOnClickListener {
 //            addFilmToFavorites(user_id,film_id)

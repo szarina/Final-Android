@@ -20,7 +20,7 @@ interface API_service {
     fun  getFilmComments(@Path("film_id") film_id: Int):Call <ArrayList<CommentEntity> >
 
     @FormUrlEncoded
-    @POST("films/{film_id_path}/comments")
+    @POST("films/{film_id_path}/comments/")
     fun  addComment(@Path("film_id_path") film_id_path: Int,
                     @Field("user") user_id: Int,
                     @Field("film") film_id: Int ,
@@ -53,7 +53,7 @@ interface API_service {
     fun getRatingForFilm(@Path("film_id") film_id: Int): Call <ArrayList <Rating_res>>
 
     @FormUrlEncoded
-    @POST("ratings")
+    @POST("ratings/")
     fun addRating( @Field("user") user_id: Int,
                    @Field("film") film_id: Int,
                    @Field("rating") rating: Float) : Call<ArrayList<Rating>>
