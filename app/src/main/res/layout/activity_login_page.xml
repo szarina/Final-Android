@@ -10,89 +10,78 @@
     tools:context=".activities.Login_page">
 
 
-    <EditText
-        android:id="@+id/name_up"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="260dp"
-        android:background="@color/scarlet"
-        android:drawableLeft="@drawable/email_24"
-        android:drawablePadding="10dp"
-        android:ems="10"
-        android:fontFamily="serif"
-        android:hint="Username"
-        android:inputType="textPersonName"
-        android:paddingLeft="10dp"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:circularflow_defaultRadius="20dp"
-        app:circularflow_radiusInDP="20dp"
+    <LinearLayout
+        android:layout_width="394dp"
+        android:layout_height="629dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <EditText
-        android:id="@+id/sing_in_password"
-        android:layout_width="278dp"
-        android:layout_height="38dp"
-        android:layout_marginTop="15dp"
-        android:background="@color/scarlet"
-        android:drawableLeft="@drawable/security_24"
-        android:drawablePadding="10dp"
-        android:ems="10"
-        android:fontFamily="serif"
-        android:hint="Password"
-        android:inputType="textPassword"
-        android:paddingLeft="10dp"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:circularflow_defaultRadius="20dp"
-        app:circularflow_radiusInDP="20dp"
-        app:layout_constraintEnd_toEndOf="@+id/name_up"
-        app:layout_constraintStart_toStartOf="@+id/name_up"
-        app:layout_constraintTop_toBottomOf="@+id/name_up" />
+        <EditText
+            android:id="@+id/name_up"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
 
-    <Button
-        android:id="@+id/ShowHide"
-        android:layout_width="51dp"
-        android:layout_height="33dp"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:layout_marginTop="260dp"
+            android:background="@color/scarlet"
+            android:drawableLeft="@drawable/email_24"
+            android:drawablePadding="10dp"
+            android:ems="10"
+            android:fontFamily="serif"
+            android:hint="Username"
+            android:inputType="textPersonName"
+            android:paddingLeft="10dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:circularflow_defaultRadius="20dp"
+            app:circularflow_radiusInDP="20dp" />
 
-        android:layout_marginEnd="16dp"
-        android:text="Show"
-        android:textColor="@color/white"
-        android:textSize="11sp"
-        app:layout_constraintBottom_toBottomOf="@+id/sing_in_password"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/sing_in_password"
-        app:layout_constraintTop_toTopOf="@+id/sing_in_password" />
+        <EditText
+            android:id="@+id/sing_in_password"
+            android:layout_width="278dp"
+            android:layout_height="38dp"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:layout_marginTop="15dp"
+            android:background="@color/scarlet"
+            android:drawableLeft="@drawable/security_24"
+            android:drawablePadding="10dp"
+            android:ems="10"
+            android:fontFamily="serif"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:paddingLeft="10dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:circularflow_defaultRadius="20dp"
+            app:circularflow_radiusInDP="20dp" />
 
-    <Button
-        android:id="@+id/sing_in_btn"
-        android:layout_width="166dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="40dp"
-        android:background="@color/barnRed"
-        android:text="Sing In"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sing_in_password" />
+        <Button
+            android:id="@+id/sing_in_btn"
+            android:layout_width="166dp"
+            android:layout_height="48dp"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:layout_marginTop="40dp"
+            android:background="@color/barnRed"
+            android:text="Sing In"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:text="Don't have an account? Sign up"
-        android:textColor="@color/chili"
-        android:textColorLink="#F44336"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sing_in_btn" />
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:layout_marginTop="15dp"
+            android:text="Don't have an account? Sign up"
+            android:textColor="@color/chili"
+            android:textColorLink="#F44336" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
